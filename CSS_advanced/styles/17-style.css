@@ -1,0 +1,36 @@
+:root {
+    /* Define custom properties */
+    --section-padding: 5rem 0;
+    --section-header-padding: 0 0 3rem;
+    --section-body-padding: 0 0 3rem;
+    --section-footer-padding: 3rem 0 0;
+    --section-footer-align: center;
+    --footer-padding: 5rem 0 1rem;
+}
+
+/* Apply section-padding to the.section class */
+.section {
+    padding: var(--section-padding);
+}
+
+/* Set.section-header's padding all 4 sides with section-header-padding */
+.section-header {
+    padding: var(--section-header-padding);
+}
+
+/* Following the section-header declaration, target the section-body class */
+.section-body {
+    padding: var(--section-body-padding);
+}
+
+/* Following the section-body declaration, target the section-footer class */
+.section-footer {
+    padding: var(--section-footer-padding);
+    text-align: var(--section-footer-align); /* Set the horizontal alignment */
+}
+
+/* At the end of your style file, target the class footer */
+footer {
+    padding: var(--footer-padding);
+}
+
