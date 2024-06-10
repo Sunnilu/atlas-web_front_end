@@ -13,7 +13,10 @@ html {
 body {
 	color: var(--text-color);
 }
-visually-hidden {
+a {
+	color: var(--text-color);
+}
+.visually-hidden {
 	display: none;
 }
 .card-category {
