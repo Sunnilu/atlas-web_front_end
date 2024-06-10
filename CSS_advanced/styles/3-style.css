@@ -24,3 +24,7 @@ section-tagline,
 .card-category {
     color: var(--color-primary);
 }
+.example-class {
+    color: var(--text-color);
+}
+
