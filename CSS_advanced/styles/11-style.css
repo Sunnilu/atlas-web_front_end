@@ -62,13 +62,13 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* Specific element styles */
-section-tagline,
+.section-tagline,
 .card-category {
     color: var(--color-primary);
 }
 
 /* Targeting the section-tagline class */
-section-tagline {
+.section-tagline {
     font-family: var(--font-family-title); /* Set font family to font-family-title */
     text-transform: var(--section-tagline-transform); /* Transform text using section-tagline-transform */
     font-weight: var(--font-weight-bold); /* Set font weight to font-weight-bold */
