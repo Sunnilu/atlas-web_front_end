@@ -28,7 +28,7 @@
     /* New custom property for section header alignment */
     --section-header-align: center;
 
-    /* New custom property for transforming section tagline text */
+    /* New custom property for section-tagline transformation */
     --section-tagline-transform: uppercase;
 }
 
@@ -56,18 +56,24 @@ h1, h2, h3, h4, h5, h6 {
     display: none;
 }
 
-/* Targeting the.section-header class just above the.section-tagline declaration */
+/* Targeting the .section-header class just above the .section-tagline declaration */
 .section-header {
-    text-align: var(--section-header-align); /* Set horizontal alignment of.section-header with section-header-align */
+    text-align: var(--section-header-align); /* Set horizontal alignment of .section-header with section-header-align */
 }
 
 /* Specific element styles */
-section-tagline {
+section-tagline,
+.card-category {
     color: var(--color-primary);
-    font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif; /* Explicitly setting the font-family */
-    font-weight: var(--font-weight-bold);
-    text-transform: var(--section-tagline-transform);
 }
+
+/* Targeting the section-tagline class */
+section-tagline {
+    font-family: var(--font-family-title); /* Set font family to font-family-title */
+    text-transform: var(--section-tagline-transform); /* Transform text using section-tagline-transform */
+    font-weight: var(--font-weight-bold); /* Set font weight to font-weight-bold */
+}
+
 
 
 
