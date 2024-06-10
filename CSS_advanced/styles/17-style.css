@@ -33,4 +33,15 @@
 footer {
     padding: var(--footer-padding);
 }
+/* Define custom properties */
+:root {
+    /* Other custom properties */
+    --footer-padding: 5rem 0 1rem;
+}
+
+/* Correctly target the footer element */
+footer {
+    padding: var(--footer-padding);
+}
+
 
