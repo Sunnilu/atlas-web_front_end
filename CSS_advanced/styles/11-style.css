@@ -64,8 +64,10 @@ h1, h2, h3, h4, h5, h6 {
 /* Specific element styles */
 section-tagline {
     color: var(--color-primary);
-    font-family: var(--font-family-title);
+    font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif; /* Explicitly setting the font-family */
     font-weight: var(--font-weight-bold);
     text-transform: var(--section-tagline-transform);
 }
+
+
 
