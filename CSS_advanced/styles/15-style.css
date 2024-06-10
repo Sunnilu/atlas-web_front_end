@@ -76,6 +76,28 @@ a:active {
     margin: var(--section-title-margin);
     color: var(--section-title-color);
 }
+/* Universal box-sizing rule */
+* { 
+    box-sizing: border-box; 
+}
+
+/* Other existing styles... */
+
+/* Adding ::before and ::after pseudo-elements for all elements */
+*::before,
+*::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
+/*# sourceMappingURL=normalize.min.css.map */
+
 
 /*# sourceMappingURL=normalize.min.css.map */
 
