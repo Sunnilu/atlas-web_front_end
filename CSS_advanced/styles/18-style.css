@@ -13,20 +13,14 @@
     --nav-item-font-size: font-size-medium;
     --nav-item-letter-spacing: 4%;
     --nav-item-display: inline-block;
-    --nav-item-margin: calc(3 * var(--root-element-height)) 0 0 0; /* Assuming --root-element-height is defined */
+    --nav-item-margin: 3em 0 0 0; /* Assuming 3 times the root element height for bottom margin */
     --nav-item-link-hover: color-primary;
 }
-
-.navbar-menu {
-    float: right;
-}
-
 .nav {
     margin: 0;
     padding: 0;
     text-align: center;
 }
-
 .nav-item {
     font-family: var(--nav-item-font-family);
     font-weight: var(--nav-item-font-weight);
@@ -35,15 +29,17 @@
     display: var(--nav-item-display);
     margin: var(--nav-item-margin);
 }
-
 .nav-link {
     display: block;
-    padding: calc(var(--root-element-height) / 2) var(--root-element-width);
-    background-color: transparent; 
+    padding-top: calc(50% * var(--root-element-height)); /* Half of the root element height for top and bottom */
+    padding-bottom: calc(50% * var(--root-element-height));
+    padding-left: var(--root-element-width); /* Equal to the root element width for left and right */
+    padding-right: var(--root-element-width);
 }
 
 .nav-link:hover {
     color: var(--nav-item-link-hover);
 }
+
 
 
