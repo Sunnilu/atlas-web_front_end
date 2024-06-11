@@ -1,0 +1,6 @@
+.row {
+    display: table; /* Makes the row behave like a table */
+    clear: both; /* Prevents any floating elements from being displayed on either side */
+    width: 100%; /* Ensures the row takes up the full width */
+    margin-bottom: 20px; /* Adds some space below the row to simulate a gap between rows */
+}
