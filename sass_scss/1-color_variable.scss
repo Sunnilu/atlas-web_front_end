@@ -4,7 +4,11 @@
 $text-color: #3D3D3D;
 
 //Apply the color to body and p tag
-body, p {
+body {
    color: $text-color;
+}
+
+p {
+  color: $text-color;
 }
 
