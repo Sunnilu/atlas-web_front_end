@@ -1,7 +1,7 @@
 // 1-text_color_variable.scss
 
 // Define the color variable
-%text-color: #3D3D3D;
+$text-color: #3D3D3D;
 
 //Apply the color to body and p tag
 body, p {
