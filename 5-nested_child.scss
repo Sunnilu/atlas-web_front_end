@@ -1,0 +1,13 @@
+// 5-nested_child.scss
+
+body {
+   // Set text color for all elements inside body tag
+   * {
+     color: #3D3D3D;
+   }
+
+   // .red element is the target for the elements that are immediate children of body
+   > .red {
+   color: #FF0000;
+   }
+}
