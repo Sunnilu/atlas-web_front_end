@@ -13,4 +13,5 @@
 }
 
 // Use the mixin
-@include set-margins(10px, 10px);	
+@include set-margins(10px, 10px); // for body
+@include set-margins(15px, 15px); // for div	
