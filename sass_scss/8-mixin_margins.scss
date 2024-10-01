@@ -1,0 +1,16 @@
+// Define the mixin
+
+@mixin set-margins($left-margin, $right-margin)
+	body {
+		margin-left: $left-margin;
+		margin-right: $right-margin;
+	}
+
+	div {
+		margin-left: $left-margin;
+		margin-right: $right-margin;
+	}
+}
+
+// Use the mixin
+@include set-margins(10px, 10px);	
