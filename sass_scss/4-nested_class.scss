@@ -1,0 +1,11 @@
+// 4-nested_declarations.scss
+
+body {
+   // Text color #3D3D3D for elements inside body tags
+   color: 3D3D3D;
+
+& .red {
+   // Text color #FF0000for .red class element inside the body tags
+   color: #FF0000;
+   }
+}
