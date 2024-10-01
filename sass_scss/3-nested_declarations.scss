@@ -1,0 +1,13 @@
+// 3-nested_declarations.scss
+
+body {
+   // No margin or padding in body tags
+   margin: 0;
+   padding: 0;
+
+   p {
+   // Margin 10px for all p tags within the pody tag
+   margin: 10px;
+   }
+}
+
