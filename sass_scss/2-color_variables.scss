@@ -1,0 +1,19 @@
+//2-color_variables.scss 
+
+// here I define the color variable 
+$text-color: #3D3D3D;
+$background-color: #6D6D6D;
+
+//Apply my color to the body and p
+body {
+   color: $text-color;
+}
+
+p {
+  color: $text-color;
+}
+
+// adding the background color to body and h2 tag
+body, h2 {
+   background-color: $background-color;
+}
