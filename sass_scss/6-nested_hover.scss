@@ -1,0 +1,11 @@
+// 6-button_hover_color.scss
+
+button {
+    // Text color #FF0000 for button tags
+    color: #FF0000;
+ 
+    &:hover {
+    // Text color #00FF00 on hover
+    color: #00FF00;
+    }
+ }

@@ -1,4 +1,0 @@
-body {
-  color: #3D3D3D; }
-  body > .red {
-    color: #FF0000; }
