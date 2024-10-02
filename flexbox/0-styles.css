@@ -180,54 +180,19 @@
   /* Grid
       ============================= */
   
-  ul.row {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    display: flex;
-  }
-  
-  /* Removed the row: after the declaration */
- /* Columns */
-[class*='col-'] {
-  flex: 1;
-  max-width: 100%;
-  padding: 0.5rem;
-}
-
-/* Responsive column widths */
-.col-md {
-  flex-basis: calc((100% - 30px) / 12);
-  max-width: calc(25% - 7.5px);
-}
-
-.col-sm {
-  flex-basis: calc((100% - 20px) / 12);
-  max-width: calc(25% - 5px);
-}
-
-.col-xs {
-  flex-basis: calc((100% - 10px) / 12);
-  max-width: calc(25% - 2.5px);
-}
-
-/* Large screens */
-.col-lg {
-  flex-basis: calc((100% - 60px) / 12);
-  max-width: calc(33.333333% - 15px);
-}
-
-/* Extra large screens */
-.col-xl {
-  flex-basis: calc((100% - 80px) / 12);
-  max-width: calc(33.333333% - 20px);
-}
-
-/* Extra extra large screens */
-.col-xxl {
-  flex-basis: calc((100% - 100px) / 12);
-  max-width: calc(25% - 25px);
-} 
+      ul.row {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        display: flex; /* Ensures all children are flex items */
+        flex-wrap: wrap; /* Allows items to wrap onto new lines if necessary */
+    }
+    
+    /* Columns */
+    [class*='col-'] {
+        flex: 1 1 auto; /* Removes float, allows flex items to grow and shrink */
+        padding: 0.5rem;
+    }
   
   /* Navbar
       ============================= */
