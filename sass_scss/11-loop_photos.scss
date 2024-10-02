@@ -1,16 +1,12 @@
-// Import color variables
-@import '10-colors.scss';
+// Import variables or functions
+@import 'variables';
 
 // Define list of names
-$list-names: ('John', 'Jane', 'Bob');
+$list-names: julien john sam damian;
 
 // Create class for each name in the list
 @each $name in $list-names {
-   .#{name} {
+   .photo-#{name} {
    background-image: url('/path/to/#{name}-background.jpg');
-
-&:hover {
-   background-image: url('/path/to/#{name}-background-hover.jpg')
-   }
   }
 }
