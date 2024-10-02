@@ -188,27 +188,46 @@
   }
   
   /* Removed the row: after the declaration */
-  
-  [class*='col-'] {
-    float: left;
-    padding: 0.5rem;
-  }
-  
-  [class*='col-'] {
-    flex: 1;
-    max-width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
-  }
-  
-  [class*='col-'] {
-    /* Remove float left */
-    margin-bottom: 15px;
-  }
+ /* Columns */
+[class*='col-'] {
+  flex: 1;
+  max-width: 100%;
+  padding: 0.5rem;
+}
 
-  .col-1-2 {
-    width: 50%;
-  }
+/* Responsive column widths */
+.col-md {
+  flex-basis: calc((100% - 30px) / 12);
+  max-width: calc(25% - 7.5px);
+}
+
+.col-sm {
+  flex-basis: calc((100% - 20px) / 12);
+  max-width: calc(25% - 5px);
+}
+
+.col-xs {
+  flex-basis: calc((100% - 10px) / 12);
+  max-width: calc(25% - 2.5px);
+}
+
+/* Large screens */
+.col-lg {
+  flex-basis: calc((100% - 60px) / 12);
+  max-width: calc(33.333333% - 15px);
+}
+
+/* Extra large screens */
+.col-xl {
+  flex-basis: calc((100% - 80px) / 12);
+  max-width: calc(33.333333% - 20px);
+}
+
+/* Extra extra large screens */
+.col-xxl {
+  flex-basis: calc((100% - 100px) / 12);
+  max-width: calc(25% - 25px);
+} 
   
   /* Navbar
       ============================= */
