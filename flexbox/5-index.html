@@ -8,63 +8,91 @@
 </head>
 <body>
     <!-- Header -->
-    <div class="header">
-        <div class="header-container">
-            <div class="header-logo">
-                <a href="#">
-                    <!-- Logo content here -->
-                </a>
-            </div>
-            <ul class="navbar-menu">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Services</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
+    <div class="header-container">
+        <div class="header-logo">
+            <!-- Logo content here -->
         </div>
+        <ul class="navbar-menu">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
     </div>
 
     <!-- Main Content -->
-    <div class="container">
-        <section class="section">
-            <div class="section-header">
-                <h1 class="section-title">Welcome to My Website</h1>
-                <p class="section-tagline">Your tagline here</p>
-            </div>
-            <div class="section-body">
-                <!-- Your main content goes here -->
-            </div>
-            <div class="section-footer">
-                <p class="footer-copyright">&copy; 2023 Your Name. All rights reserved.</p>
+    <section class="container">
+        <section class="section section-latest-news">
+            <h1>Latest News</h1>
+            <ul class="row">
+                <li>News Item 1</li>
+                <li>News Item 2</li>
+                <li>News Item 3</li>
+            </ul>
+        </section>
+
+        <section class="section section-services">
+            <h1>Our Services</h1>
+            <ul class="row">
+                <li><a href="#">Service 1</a></li>
+                <li><a href="#">Service 2</a></li>
+                <li><a href="#">Service 3</a></li>
+            </ul>
+        </section>
+
+        <section class="section section-works">
+            <h1>Our Works</h1>
+            <div class="card-work card-outer">
+                <div class="card-image">
+                    <img src="path/to/image.jpg" alt="Card image">
+                </div>
+                <div class="card-inner">
+                    <h2 class="card-title"><a href="#">Card Title</a></h2>
+                </div>
             </div>
         </section>
-    </div>
 
-    <!-- Cards -->
-    <div class="card-work card-outer">
-        <div class="card-image">
-            <img src="path/to/image.jpg" alt="Card image">
-        </div>
-        <div class="card-inner">
-            <h2 class="card-title"><a href="#">Card Title</a></h2>
-        </div>
-    </div>
+        <section class="section section-about-us">
+            <h1>About Us</h1>
+            <!-- About us content goes here -->
+        </section>
 
-    <div class="card-services">
-        <h2 class="card-title">Our Services</h2>
-        <a href="#">Service 1</a>
-        <a href="#">Service 2</a>
-        <a href="#">Service 3</a>
-    </div>
+        <section class="section section-latest-news">
+            <h1>Latest News</h1>
+            <ul class="row">
+                <li>News Item 1</li>
+                <li>News Item 2</li>
+                <li>News Item 3</li>
+            </ul>
+        </section>
 
-    <div class="card-testimonial">
-        <figure class="card-avatar">
-            <img src="path/to/avatar.jpg" alt="Avatar">
-        </figure>
-        <blockquote class="card-quote">
-            <p>This is a testimonial quote.</p>
-            <cite>John Doe</cite>
-        </blockquote>
-    </div>
+        <section class="section section-testimonial">
+            <h1>Testimonial</h1>
+            <div class="card-testimonial">
+                <figure class="card-avatar">
+                    <img src="path/to/avatar.jpg" alt="Avatar">
+                </figure>
+                <blockquote class="card-quote">
+                    <p>This is a testimonial quote.</p>
+                    <cite>John Doe</cite>
+                </blockquote>
+            </div>
+        </section>
+
+        <section class="section section-contact">
+            <h1>Contact Us</h1>
+            <!-- Contact information goes here -->
+        </section>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p class="footer-copyright">&copy; 2023 Your Name. All rights reserved.</p>
+        <ul>
+            <li><a href="#" class="social-link">Facebook</a></li>
+            <li><a href="#" class="social-link">Twitter</a></li>
+            <li><a href="#" class="social-link">LinkedIn</a></li>
+        </ul>
+    </footer>
 </body>
 </html>
