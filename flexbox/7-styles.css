@@ -90,11 +90,10 @@
 
 /* Header
     ============================= */
-
 .header-container {
     display: flex;
     justify-content: space-between;
-    align-item: center; /* I corrected the property name */
+    align-items: center;
 }
 
 .header-logo {
