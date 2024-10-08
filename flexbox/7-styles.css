@@ -94,7 +94,7 @@
 .header-container {
     display: flex;
     justify-content: space-between;
-    align-item: center;
+    align-item: center; /* I corrected the property name */
 }
 
 .header-logo {
