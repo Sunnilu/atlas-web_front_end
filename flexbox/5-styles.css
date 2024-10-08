@@ -1,29 +1,7 @@
 /** HEADER **/
---header-padding: 4rem 0 0;
-
 .header-container {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 
-/* Remove the following rules */
-/*
-.header-logo {
-    /* Existing rules */
-}
-
-.header-logo a {
-    /* Existing rules */
-}
-
-.navbar-menu {
-    /* Existing rules */
-}
-*/
-
-/* Variables section - Remove the following */
---header-logo-position; /* Removed */
---header-logo-link-display; /* Removed */
---header-logo-link-position; /* Removed */
---header-logo-link-top; /* Removed */
---header-logo-link-left; /* Removed */
+  --header-padding: 4rem 0 0;
