@@ -39,29 +39,26 @@
     margin: 1rem;
 }
 
-/* Navbar
-    ============================= */
-
-.navbar-menu {
-    display: flex;
+/* Variables */
+:root {
+    --nav-item-margin: 0 0 0 2rem;
 }
 
+/* Navbar styles */
 .nav {
     display: flex;
     flex-wrap: wrap;
     gap: var(--nav-item-margin);
 }
 
-.nav.nav-item {
-    font-family: var(--nav-item-font-family);
-    font-weight: var(--nav-item-font-weight);
-    font-size: var(--nav-item-font-size);
-    letter-spacing: var(--nav-item-letter-spacing);
+.nav .nav-item {
+    margin-left: var(--nav-item-margin);
+    margin-right: var(--nav-item-margin);
 }
- 
-.nav ,nav-item + .nav-item {
-    margin: 0;
-    padding: 0.5rem 1rem;
+
+/* Target adjacent nav items */
+.nav .nav-item + .nav-item {
+    margin-left: var(--nav-item-margin);
 }
 
 .nav.nav-link {
