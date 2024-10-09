@@ -216,6 +216,11 @@
 /* Section SERVICES
     ============================= */
 
+/* Section ABOUT US */
+.section-about-us .col-* {
+    align-self: center;
+}
+
 .section-services .row {
     flex-wrap: wrap;
 }
