@@ -186,26 +186,40 @@
   
   /* Section HERO
       ============================= */
-  
-  .section-hero {
+/* Section HERO */
+.section-hero {
+    position: relative;
+    margin-top: -8.5rem;
+}
+
+.section-hero .section-body {
+    padding: 10rem 4rem;
+}
+
+.section-hero .section-category {
+    color: var(--color-white);
+    text-transform: uppercase;
+}
+
+.hero-homepage {
     background-position: 75% 0;
     background-repeat: no-repeat;
     background-size: 90rem auto;
     background-color: #010101;
-  }
-  
-  .section-hero .section-title {
-    margin-bottom: 5rem;
-  }
-  
- .section-hero .section-inner {
+}
+
+.hero-homepage .section-inner {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
     min-height: 50vh;
 }
-  
+
+.hero-homepage .section-title {
+    margin-bottom: 5rem;
+}
+
 /* Section Latest news
     ============================= */
 
