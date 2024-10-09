@@ -1,0 +1,323 @@
+/* Global styles */
+:root {
+    --variable-name: value;
+
+    /* Removed these variables */
+    --header-logo-position: none;
+    --header-logo-link-display: none;
+    --header-logo-link-top: 0;
+    --header-logo-link-left: 0;
+}
+
+/*** 2. LAYOUT ***/
+    
+
+/* Layout
+    ============================= */
+
+.container {
+    width: 960px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Grid
+    ============================= */
+
+.row {
+    display: flex;
+    margin: -1rem;
+}
+
+[class*='col-'] {
+    flex: 0 0 calc((100% / 3) - 2rem);
+    margin: 1rem;
+}
+
+.col-1-2 {
+    flex: 0 0 calc((100% / 2) - 2rem);
+    margin: 1rem;
+}
+
+/* Variables */
+:root {
+    --nav-item-margin: 0 0 0 2rem;
+}
+
+/* Navbar styles */
+.nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--nav-item-margin);
+}
+
+.nav .nav-item {
+    margin-left: var(--nav-item-margin);
+    margin-right: var(--nav-item-margin);
+}
+
+/* Target adjacent nav items */
+.nav .nav-item + .nav-item {
+    margin-left: var(--nav-item-margin);
+}
+
+.nav.nav-link {
+    display: block;
+    padding: 0.5rem 0;
+    position: relative;
+}
+
+.nav.nav-link:hover {
+    color: var(--nav-item-link-hover);
+    text-decoration: none;
+}
+
+.nav.nav-link::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: var(--color-white);
+    width: 0;
+    height: 0.2rem;
+    transition: var(--transition-duration) var(--transition-cubic-bezier);
+}
+
+.nav.nav-item:hover.nav-link::before {
+    background-color: var(--color-primary);
+    width: 100%;
+}
+
+/* Header
+    ============================= */
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-logo {
+    /* Removed header-logo and header-logo a rules */
+}
+
+.navbar-menu {
+    /* Removed navbar menu */
+}
+
+/* Footer
+    ============================= */
+
+.footer {
+    --nav-item-font-weight: normal;
+    --nav-item-font-size: var(--font-size-small);
+    padding: var(--footer-padding);
+}
+
+.footer-copyright {
+    margin: 0;
+    font-size: var(--font-size-small);
+    color: var(--text-color);
+}
+
+.footer ul {
+    text-align: right;
+}
+
+.footer-address {
+    color: var(--text-color);
+}
+
+.social-link {
+    display: block;
+}
+
+.social-link > svg {
+    fill: var(--text-color);
+}
+
+/*** 3. SECTION ***/
+
+/* Section (all styles)
+      ============================= */
+  
+  .section {
+    padding: var(--section-padding);
+  }
+  
+  .section-header {
+    text-align: var(--section-header-align);
+    padding: var(--section-header-padding);
+  }
+  
+  .section-title {
+    font-size: var(--section-title-font-size);
+    font-weight: var(--section-title-font-weight);
+    line-height: var(--section-title-line-height);
+    margin: var(--section-title-margin);
+    color: var(--section-title-color);
+  }
+  
+  .section-tagline {
+    color: var(--section-tagline-color);
+    font-family: var(--section-tagline-font-family);
+    text-transform: var(--section-tagline-transform);
+    font-weight: var(--section-tagline-font-weight);
+    margin: var(--section-tagline-margin);
+  }
+  
+  .section-body {
+    padding: var(--section-body-padding);
+  }
+  
+  .section-footer {
+    padding: var(--section-footer-padding);
+    text-align: var(--section-footer-align);
+  }
+  
+  /* Section theming
+      ============================= */
+  
+  [data-section-theme="dark"] {
+    --button-color: var(--color-white);
+    --text-color: var(--color-white);
+    --section-title-color: var(--color-white);
+    background-color: #010101;
+  }
+  
+  /* Section HERO
+      ============================= */
+  
+  .section-hero {
+    background-position: 75% 0;
+    background-repeat: no-repeat;
+    background-size: 90rem auto;
+    background-color: #010101;
+  }
+  
+  .section-hero .section-title {
+    margin-bottom: 5rem;
+  }
+  
+ .section-hero .section-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    min-height: 50vh;
+}
+  
+/* Section Latest news
+    ============================= */
+
+.section-latest-news .row {
+    flex-direction: row-reverse;
+}
+
+/* Section SERVICES
+    ============================= */
+
+.section-services .row {
+    flex-wrap: wrap;
+}
+
+/* ... (rest of the CSS remains unchanged) ... */
+
+/*** 4. CARD ***/
+
+/* Card WORK
+    ============================= */
+
+.card-work.card-outer {
+    position: relative;
+    overflow: hidden;
+}
+
+.card-work:hover.card-outer {
+    transform: scale(0.95);
+}
+
+.card-work.card-image img {
+    height: 30rem;
+    width: 100%;
+    object-fit: cover;
+    vertical-align: bottom;
+}
+
+.card-work.card-image:hover {
+    transform: scale(1.2);
+    transition: var(--transition-duration) var(--transition-cubic-bezier);
+}
+
+.card-work.card-inner {
+    position: absolute;
+    top: -0.1rem;
+    left: -0.1rem;
+    right: -0.1rem;
+    bottom: -0.1rem;
+    z-index: 1;
+    transition: var(--transition-duration) var(--transition-cubic-bezier);
+}
+
+.card-work:hover.card-inner {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.card-work.card-title {
+    text-align: center;
+    margin: 0;
+    opacity: 0;
+    height: 100%;
+    position: relative;
+}
+
+.card-work.card-title a {
+    display: block;
+    text-decoration: none;
+    padding-top: 45%;
+}
+
+.card-work.card-title a::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    content: '';
+}
+
+.card-work:hover.card-title {
+    opacity: 1;
+}
+
+/* Card TESTIMONIAL
+    ============================= */
+
+.card-testimonial {
+    text-align: center;
+}
+
+.card-testimonial.card-avatar {
+    border-radius: 50%;
+    width: 10rem;
+    height: 10rem;
+}
+
+.card-testimonial.card-quote cite {
+    display: block;
+    padding-top: 1rem;
+    color: var(--color-primary);
+}
+
+.card-testimonial.card-quote {
+    position: relative;
+}
+
+.card-testimonial.card-quote::before {
+    content: '\201C';
+    position: absolute;
+    top: -4.5rem;
+    left: -1rem;
+    color: #efeded;
+    font-size: 10rem;
+    z-index: -1;
+}
