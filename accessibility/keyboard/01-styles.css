@@ -621,7 +621,7 @@
   .card-category {
     color: var(--color-primary);
   }
-  /* Card WORK
+ /* Card WORK
   ============================= */
 
 .card-work.card-outer {
@@ -679,13 +679,12 @@
   content: '';
 }
 
-.card-work.card-title a:focus,
-.card-work:hover.card-title a {
+.card-work:hover.card-title a,
+.card-work.card-title a:focus {
   opacity: 1;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.7);
 }
-    }	
   
   /* Card SERVICES
       ============================= */
