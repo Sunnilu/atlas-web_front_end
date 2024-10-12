@@ -621,6 +621,7 @@
   .card-category {
     color: var(--color-primary);
   }
+
  /* Card WORK
   ============================= */
 
@@ -666,7 +667,7 @@
   display: block;
   text-decoration: none;
   padding-top: 45%;
-  opacity: 0;
+  opacity: 0; /* Set opacity to 0 as per your request */
   transition: all 0.3s ease;
 }
 
@@ -679,11 +680,11 @@
   content: '';
 }
 
-.card-work:hover.card-title a,
-.card-work.card-title a:focus {
-  opacity: 1;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.7);
+.card-work.card-title a:focus,
+.card-work:hover.card-title a {
+  opacity: 1; /* Set opacity to 1 on focus and hover */
+  height: 100%; /* Maintain height */
+  background-color: rgba(0, 0, 0, 0.7); /* Set background color */
 }
   
   /* Card SERVICES
