@@ -695,22 +695,24 @@
     }
   
     .card-work .card-title {
-      opacity: 1;
-    }
-  
-    .card-work .card-title a {
-      display: block;
-      padding: 2rem 1rem 0 1rem;
-    }
-  
-    .card-work:hover .card-inner {
-      background-color: transparent;
+      /* Remove yhe opacity property */
     }
   
     .card-work:hover .card-image {
       transform: none;
     }
-  }
+
+    .card-work .card-title a {
+	opacity: 0;
+	transition: all 0.3s ease;
+    }
+
+    .card-work .card-title a: focus,
+    .card-work:hover .card-title a {
+	opacity: 1;
+	height: 100%;
+	background-color: rgba(0, 0,  , 0, 0.7);
+    }	
   
   /* Card SERVICES
       ============================= */
@@ -1101,6 +1103,5 @@
     cursor: text;
     margin: 0 1rem;
   }
-  file:
   
   
