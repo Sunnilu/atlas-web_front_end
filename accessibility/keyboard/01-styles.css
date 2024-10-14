@@ -622,7 +622,7 @@
     color: var(--color-primary);
   }
 
- /* Card WORK
+/* Card WORK
   ============================= */
 
 .card-work.card-outer {
@@ -667,7 +667,7 @@
   display: block;
   text-decoration: none;
   padding-top: 45%;
-  opacity: 0; /* Set opacity to 0 as per your request */
+  opacity: 0;
   transition: all 0.3s ease;
 }
 
@@ -682,9 +682,9 @@
 
 .card-work.card-title a:focus,
 .card-work:hover.card-title a {
-  opacity: 1; /* Set opacity to 1 on focus and hover */
-  height: 100%; /* Maintain height */
-  background-color: rgba(0, 0, 0, 0.7); /* Set background color */
+  opacity: 1;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
 }
   
   /* Card SERVICES
