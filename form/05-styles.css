@@ -744,13 +744,10 @@
     letter-spacing: .019rem;
     color: var(--color-dark-grey);
     font-size: var(--font-size-small);
-    max-height: 0;
-    overflow: hidden;
     transition: .3s;
   }
 
   .form-group:focus-within .form-help {
-    max-height: 20rem;
     margin: .4rem 0 0;
   }
 
