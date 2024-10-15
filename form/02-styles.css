@@ -673,3 +673,57 @@
     border: none;
     padding: 0 0 2rem;
   }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2rem;
+  }
+
+  .form-group label {
+    font-size: 1.3rem;
+    font-weight: bold;
+  }
+
+  .form-group input,
+  .form-group textarea {
+    margin-top: 1rem;
+    border-radius: 0.2rem;
+    padding: 1rem;
+    border: 0.1rem solid var(--color-grey);
+    font-size: 1.2rem;
+    line-height: 1.5;
+  }
+
+  .form-group textarea {
+    height: 10rem;
+    resize: vertical;
+  }
+
+  .col-1-2 {
+    width: calc((100% / 2) - 2rem);
+  }
+
+  .col-2-3 {
+    width: calc((100% / 3) - 2rem);
+  }
+
+  .input-group-btn {
+    text-align: right;
+  }
+
+  .input-group-btn .btn {
+    padding: 1rem 2rem;
+    border-radius: 0.2rem;
+    background: var(--color-primary);
+    color: var(--color-white);
+    border: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    transition: var(--transition-duration) var(--transition-cubic-bezier);
+  }
+
+  .input-group-btn .btn:hover {
+    background: var(--color-light-grey);
+    color: var(--color-primary);
+  }
