@@ -699,5 +699,67 @@
   }
 
   .col-1-2 {
-    width: calc((100% / 2
+    width: calc((100% / 2) - 2rem);
+  }
+
+  .col-2-3 {
+    width: calc((100% / 3) - 2rem);
+  }
+
+  .input-group-btn {
+    text-align: right;
+  }
+
+  .input-group-btn .btn {
+    padding: 1rem 2rem;
+    border-radius: 0.2rem;
+    background: var(--color-primary);
+    color: var(--color-white);
+    border: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    transition: var(--transition-duration) var(--transition-cubic-bezier);
+  }
+
+  .input-group-btn .btn:hover {
+    background: var(--color-light-grey);
+    color: var(--color-primary);
+  }
+
+  .form-field input,
+  .form-field textarea {
+    position: relative;
+    width: 100%;
+    padding: 1.2rem;
+    line-height: 1;
+    border: .1rem solid var(--color-black);
+    background-color: var(--color-white);
+    box-shadow: none;
+    outline: 0;
+  }
+
+  .form-field input,
+  .form-field textarea {
+    padding-right: 3rem;
+  }
+
+  .form-field input:focus,
+  .form-field textarea:focus {
+    border: .1rem solid var(--color-grey);
+    background-color: var(--color-light-grey);
+  }
+
+  input::-webkit-input-placeholder, 
+  textarea::-webkit-input-placeholder {
+    color: var(--color-grey);
+  }
+
+  input:-ms-input-placeholder, 
+  textarea:-ms-input-placeholder {
+    color: var(--color-grey);
+  }
+
+  input::-ms-input-placeholder, 
+  textarea::-ms-input-placeholder {
+    color: var(--color-grey);
   }
