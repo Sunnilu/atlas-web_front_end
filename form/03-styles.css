@@ -747,23 +747,25 @@
 
   .form-field-container input, 
   .form-field-container textarea {
-    width: calc(100% - 2rem);
-    padding: 1rem;
-    border-radius: 0.2rem;
-    border: 0.1rem solid var(--color-grey);
-    font-size: 1.2rem;
-    line-height: 1.5;
+    position: relative;
+    width: 100%;
+    padding: 1.2rem;
+    line-height: 1;
+    border: 0.1rem solid var(--color-black);
+    background-color: var(--color-white);
+    box-shadow: none;
+    outline: 0;
   }
 
-  .form-field-container textarea {
-    height: 10rem;
-    resize: vertical;
+  .form-field-container input[type="text"],
+  .form-field-container input[type="email"] {
+    padding-right: 3rem;
   }
 
   .form-field-container input:focus, 
   .form-field-container textarea:focus {
-    outline: none;
-    box-shadow: 0 0 0 0.2rem var(--color-primary);
+    border: 0.1rem solid var(--color-grey);
+    background-color: var(--color-light-grey);
   }
 
   .form-field-container input::-webkit-input-placeholder, 
