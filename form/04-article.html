@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Holberton School</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="00-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <!– Header –>
+    <header class="header" data-section-theme="dark">
+        <div class="container">
+            <div class="header-container">
+                <div class="header-logo">
+                    <a href="/">
+                        <img src="images/logo-white.png" alt="Techium logo" width="160" height="40">
+                    </a>
+                </div>
+                <nav class="navbar-menu">
+                    <ul class="nav">
+                        <li class="nav-item">
+                            <a href="/" class="nav-link">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#services" class="nav-link">Services</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#works" class="nav-link">Works</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#about" class="nav-link">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#latest_news" class="nav-link">Latest news</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#contact" class="nav-link">Contact</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <!– Main –>
+    <main>
+        <!– Hero section –>
+        <header class="section-hero hero-article" data-section-theme="dark" style="background-image: url('images/pic-article-02.jpg')">
+            <div class="container">
+                <div class="section-body">
+                    <section class="section-inner">
+                        <span class="section-category">Digital Life</span>
+                        <h1 class="section-title">Ut alios omittam, hunc appello, quem ille unum secutus est.</h1>
+                    </section>
+                </div>
+            </div>
+        </header>
+        <div class="main-article">
+            <div class="container">
+                <div class="post">
+                    <article class="post-content">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tum mihi Piso: Quid ergo? Tum ille: Ain tandem? Non autem hoc: igitur ne illud quidem. Sed quod proximum fuit non vidit. Nos commodius agimus. An nisi populari fama?</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed haec omittamus; <b>Hoc Hieronymus summum bonum esse dixit.</b> Duo Reges: constructio interrete.</p>
+                        <h2>Prioris generis est docilitas, memoria</h2>
+                        <ol>
+                            <li>Nec enim, dum metuit, iustus est, et certe, si metuere destiterit, non erit;</li>
+                            <li>Quid enim de amicitia statueris utilitatis causa expetenda vides.</li>
+                        </ol>
+                        <p>Morbi pharetra congue ante ac tincidunt. Donec euismod eu mauris nec laoreet. Praesent id sodales ipsum. Aliquam erat volutpat. Ut porta sem eget libero faucibus, eget convallis nisi finibus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Vestibulum accumsan euismod nunc quis viverra.</p>
+                        <figure>
+                            <img src="images/the-honest-company-j69c0Q650Hw-unsplash.jpg" alt="Glasses, baby converse shoes, black bag, wipper on a dresser with a open drawer" width="620" height="350">
+                            <figcaption class="img-caption">Pugnant Stoici cum Peripateticis. Prioris generis est docilitas</figcaption>
+                        </figure>
+                        <p>Quare conare, quaeso. Dici enim nihil potest verius. Primum divisit ineleganter; Suam denique cuique naturam esse ad vivendum ducem.</p>
+                        <blockquote cite="https://www.holbertonschool.com/">
+                            <p>Ego autem tibi, Piso, assentior usu hoc venire, ut acrius aliquanto et attentius de claris viris locorum admonitu cogitemus.</p>
+                        </blockquote>
+                        <p>Omnia contraria, quos etiam insanos esse vultis. Tibi hoc incredibile, quod beatissimum.</p>
+                        <div class="post-comments">
+                            <header>
+                                <h2 class="section-title">Leave a comment</h2>
+                                <p>All fields are required.</p> 
+                            </header>
+                            <form action="#" method="post">
+                                <fieldset>
+                                    <legend class="visually-hidden">Your personal information</legend>
+                                    <div class="form-group col-1-2">
+                                        <label for="your-first-name">First Name</label>
+                                        <div class="form-field">
+                                            <span class="form-field-container">
+                                                <input class="form-control" type="text" id="your-first-name" name="your-first-name" autocomplete="name" required aria-required="true" placeholder="e.g. Mike" pattern="[A-Za-zÀ-ž\s]{3,}" maxlength="35" accesskey="f">
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-1-2">
+                                        <label for="your-last-name">Last Name</label>
+                                        <div class="form-field">
+                                            <span class="form-field-container">
+                                                <input class="form-control" type="text" id="your-last-name" name="your-last-name" autocomplete="name" required aria-required="true" placeholder="e.g. Smith" pattern="[A-Za-zÀ-ž\s]{3,}" maxlength="40" accesskey="l">
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-2-3">
+                                        <label for="your-email">Email</label>
+                                        <div class="form-field">
+                                            <span class="form-field-container">
+                                                <input class="form-control" type="email" id="your-email" name="your-email" autocomplete="email" required aria-required="true" placeholder="e.g. youremail@gmail.com" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" maxlength="55" accesskey="e">
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="your-title">Title</label>
+                                        <div class="form-field">
+                                            <span class="form-field-container">
+                                                <input class="form-control" type="text" id="your-title" name="your-title" autocomplete="on" required aria-required="true" placeholder="e.g. I loved that article" pattern="[A-Za-zÀ-ž\s]{4,}" maxlength="75" accesskey="t">
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="your-comment">Comment</label>
+                                        <div class="form-field">
+                                            <span class="form-field-container">
+                                                <textarea class="form-control" id="your-comment" name="your-comment" autocomplete="on" required aria-required="true" placeholder="Write your comment here" minlength="10" accesskey="c" cols="30" rows="6"></textarea>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <button class="button button-primary">Post my comment</button>
+                                    </div>
+                                </fieldset>
+                            </form>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!– Footer –>
+    <footer class="footer" data-section-theme="dark">
+        <div  class="container">
+            <div class="row">
+                <div class="col-1-2">
+                    <img src="images/logo-white.png" alt="Techium logo" width="160" height="40">
+                    <address class="footer-address">
+                        234 Washington Street<br>
+                        Urbana, Illinois
+                    </address>
+                </div>
+                <div class="col-1-2">
+                    <ul class="footer-nav nav">
+                        <li class="footer-nav-item nav-item">
+                            <a href="#" class="footer-nav-link">Terms of use</a>
+                        </li>
+                        <li class="footer-nav-item nav-item">
+                            <a href="#" class="footer-nav-link">Privacy Policy</a>
+                        </li>
+                        <li class="footer-nav-item nav-item">
+                            <a href="#" class="footer-nav-link">Cookie Policy</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+  </body>
+</html>
