@@ -681,12 +681,8 @@
   }
 
   .form-group label {
-    font-size: 1.4rem;
+    font-size: 1.3rem;
     font-weight: bold;
-    cursor: pointer;
-    display: block;
-    white-space: nowrap;
-    padding: 0 0 0.5rem;
   }
 
   .form-group input,
@@ -730,4 +726,57 @@
   .input-group-btn .btn:hover {
     background: var(--color-light-grey);
     color: var(--color-primary);
+  }
+
+  label {
+    cursor: pointer;
+    display: block;
+    white-space: nowrap;
+    font-size: 1.4rem;
+    padding: 0 0 0.5rem;
+  }
+
+  .form-field {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .form-field-container {
+    position: relative;
+  }
+
+  .form-field-container input, 
+  .form-field-container textarea {
+    width: calc(100% - 2rem);
+    padding: 1rem;
+    border-radius: 0.2rem;
+    border: 0.1rem solid var(--color-grey);
+    font-size: 1.2rem;
+    line-height: 1.5;
+  }
+
+  .form-field-container textarea {
+    height: 10rem;
+    resize: vertical;
+  }
+
+  .form-field-container input:focus, 
+  .form-field-container textarea:focus {
+    outline: none;
+    box-shadow: 0 0 0 0.2rem var(--color-primary);
+  }
+
+  .form-field-container input::-webkit-input-placeholder, 
+  .form-field-container textarea::-webkit-input-placeholder {
+    color: var(--color-grey);
+  }
+
+  .form-field-container input:-ms-input-placeholder, 
+  .form-field-container textarea:-ms-input-placeholder {
+    color: var(--color-grey);
+  }
+
+  .form-field-container input::-ms-input-placeholder, 
+  .form-field-container textarea::-ms-input-placeholder {
+    color: var(--color-grey);
   }
