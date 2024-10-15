@@ -16,7 +16,7 @@ def main():
     post_comments_section = body.find('.//section[@class="post-comments"]')
 
     if post_comments_section is not None and post_div is not None:
-        # Check if they have the same parent (which is the body)
+        # Check if they have the same parent (which is the container div)
         if post_comments_section.getparent() == post_div.getparent():
             print('post-comments section is sibling to post div: True')
         else:
