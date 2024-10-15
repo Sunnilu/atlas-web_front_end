@@ -1,4 +1,4 @@
-/* SUMMARY
+ /* SUMMARY
     1. GLOBAL
     2. LAYOUT
     3. SECTION
@@ -738,47 +738,3 @@
 
   .form-field {
     display: flex;
-    flex-direction: column;
-  }
-
-  .form-field-container {
-    position: relative;
-  }
-
-  .form-field-container input, 
-  .form-field-container textarea {
-    position: relative;
-    width: 100%;
-    padding: 1.2rem;
-    line-height: 1;
-    border: 0.1rem solid var(--color-black);
-    background-color: var(--color-white);
-    box-shadow: none;
-    outline: 0;
-  }
-
-  .form-field-container input[type="text"],
-  .form-field-container input[type="email"] {
-    padding-right: 3rem;
-  }
-
-  .form-field-container input:focus, 
-  .form-field-container textarea:focus {
-    border: 0.1rem solid var(--color-grey);
-    background-color: var(--color-light-grey);
-  }
-
-  .form-field-container input::-webkit-input-placeholder, 
-  .form-field-container textarea::-webkit-input-placeholder {
-    color: var(--color-grey);
-  }
-
-  .form-field-container input:-ms-input-placeholder, 
-  .form-field-container textarea:-ms-input-placeholder {
-    color: var(--color-grey);
-  }
-
-  .form-field-container input::-ms-input-placeholder, 
-  .form-field-container textarea::-ms-input-placeholder {
-    color: var(--color-grey);
-  }
