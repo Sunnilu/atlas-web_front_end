@@ -686,8 +686,8 @@
   }
   
   
-  .form-group input[type="text"], input[type="email"],
-  .form-group textarea[type="true"] {
+   input[type="text"], input[type="email"],
+   textarea {
     position: relative;
     width: 100%;
     margin-top: 1rem;
@@ -696,7 +696,9 @@
     border: 0.1rem solid var(--color-black);
     font-size: 1.2rem;
     line-height: 1;
-    background-color: (var(--color-white));
+    background-color: var(--color-white);
+    box-shadow: none;
+    outline: 0;
   }
 
   .form-group textarea {
