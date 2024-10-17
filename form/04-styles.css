@@ -687,7 +687,7 @@
   
   
   .form-group input[type="text"], input[type="email"],
-  .form-group textarea {
+  .form-group textarea[type="true"] {
     position: relative;
     width: 100%;
     margin-top: 1rem;
