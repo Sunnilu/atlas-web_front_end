@@ -383,11 +383,44 @@
   
   .section-latest-news .row {
     flex-direction: row-reverse;
-  }
+  }  
+       ============================= */
   
-  /* Section SERVICES
-      ============================= */
-  
+   /* Form group
+============================= */
+
+.form-group {
+  padding: 1rem;
+  margin: 0;
+  background-color: var(--color-white);
+}
+:focus-within .form-group {
+  background-color: var(--color-light-grey);
+  transition: 3s;
+}
+
+/* Form field
+============================= */
+.form-field-container {
+  position: relative;
+}
+.form-field-icon {
+  font-size: normal;
+}
+
+/* Form help
+============================= */
+.form-help {
+  margin: 0;
+  line-height: 1.3;
+  letter-spacing: .019rem;
+  color: var(--color-dark-grey);
+  font-size: var(--font-size-small);
+  max-height: 0;
+  transition: .3s;
+  overflow: hidden;
+}
+
   .section-services .row {
     flex-wrap: wrap;
   }
