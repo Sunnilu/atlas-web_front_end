@@ -712,6 +712,11 @@
     background-color: var(--color-light-grey);
   }
 
+  ::placeholder {
+    font-style: italic;
+    font-size: var(--font-size-small);
+  }
+  
   .form-group textarea {
     height: 10rem;
     resize: vertical;
