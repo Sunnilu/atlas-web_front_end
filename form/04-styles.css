@@ -688,11 +688,12 @@
   .form-group input,
   .form-group textarea {
     margin-top: 1rem;
-    border-radius: 0.2rem;
-    padding: 1rem;
-    border: 0.1rem solid var(--color-grey);
+    border-radius: 0.1rem solid;
+    padding: 1.2rem;
+    border: 0.1rem solid var(--color-black);
     font-size: 1.2rem;
-    line-height: 1.5;
+    line-height: 1.%;
+    background-color: (var(--color-white));
   }
 
   .form-group textarea {
@@ -738,3 +739,4 @@
 
   .form-field {
     display: flex;
+  }
