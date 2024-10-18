@@ -27,11 +27,10 @@
     --color-red: #cd3e65;
     --color-green: #08805b;
 
-    --valid-color: color-green;
-    --error-color: color-red;
-  
     --text-color: var(--color-black);
   
+    --valid-color: color-green;
+    --error-color: color-red;
     --font-family-base: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     --font-family-title: 'Raleway', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   
