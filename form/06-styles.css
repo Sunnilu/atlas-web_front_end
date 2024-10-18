@@ -24,7 +24,7 @@
     --color-light-grey: #f3f3f3;
     --color-dark-grey: #353535;
 
-    --color-red: #cd3e645;
+    --color-red: #cd3e65;
     --color-green: #08805b;
 
     --valid-color: color-green;
@@ -168,7 +168,7 @@
         color: var(--color-primary);
         background: var(--color-white);
       }
-      
+
   /* Helpers
       ============================= */
   
