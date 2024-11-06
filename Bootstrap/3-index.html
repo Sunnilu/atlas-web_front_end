@@ -1,90 +1,110 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-    <title>Holberton - Web Stack - Bootstrap</title>
-    <meta name="description" content="Bootstrap is a free and open-source CSS framework">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+        <title>Holberton - Web Stack - Bootstrap</title>
+        <meta name="description" content="Bootstrap is a free and open-source CSS framework">
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-</head>
-<body>
-    <div class="container d-none d-md-block p-3">
-        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4 mt-3">
-            <div class="col">
-                <div class="card mb-3">
-                    <div class="card-header">Coding</div>
-                    <img src="https://via.placeholder.com/450x200" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">HTML</h5>
-                        <p class="card-text">Hypertext Markup Language (HTML) is the standard markup language for documents designed to be displayed in a web browser.</p>
-                        <button type="button" class="btn btn-danger mt-3" data-toggle="modal" data-target="#playModal">Play with</button>
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <!-- Container with responsive padding and break at 992px -->
+        <div class="container py-5">
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
+                <!-- First Card - HTML -->
+                <div class="col">
+                    <div class="card shadow-sm h-100">
+                        <div class="card-header bg-primary text-white">
+                            Coding
+                        </div>
+                        <img src="https://via.placeholder.com/450x200" class="card-img-top" alt="HTML image">
+                        <div class="card-body">
+                            <h5 class="card-title">HTML</h5>
+                            <p class="card-text">Hypertext Markup Language (HTML) is the standard markup language for documents designed to be displayed in a web browser.</p>
+                            <button class="btn btn-danger" data-toggle="modal" data-target="#playModal">Play with</button>
+                        </div>
+                        <div class="card-footer text-muted">
+                            40h
+                        </div>
                     </div>
-                    <div class="card-footer text-muted">40h</div>
                 </div>
-            </div>
-            <div class="col">
-                <div class="card mb-3">
-                    <div class="card-header">Coding</div>
-                    <img src="https://via.placeholder.com/450x200" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">CSS</h5>
-                        <p class="card-text">Cascading Style Sheets (CSS) is a style sheet language used for describing the presentation of a document written in a markup language like HTML.</p>
-                        <button type="button" class="btn btn-danger mt-3" data-toggle="modal" data-target="#playModal">Play with</button>
+                <!-- Second Card - CSS -->
+                <div class="col">
+                    <div class="card shadow-sm h-100">
+                        <div class="card-header bg-primary text-white">
+                            Coding
+                        </div>
+                        <img src="https://via.placeholder.com/450x200" class="card-img-top" alt="CSS image">
+                        <div class="card-body">
+                            <h5 class="card-title">CSS</h5>
+                            <p class="card-text">Cascading Style Sheets (CSS) is a style sheet language used for describing the presentation of a document written in a markup language like HTML.</p>
+                            <button class="btn btn-danger" data-toggle="modal" data-target="#playModal">Play with</button>
+                        </div>
+                        <div class="card-footer text-muted">
+                            35h
+                        </div>
                     </div>
-                    <div class="card-footer text-muted">35h</div>
                 </div>
-            </div>
-            <div class="col">
-                <div class="card mb-3">
-                    <div class="card-header">Coding</div>
-                    <img src="https://via.placeholder.com/450x200" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Javascript</h5>
-                        <p class="card-text">JavaScript, often abbreviated as JS, is a programming language that conforms to the ECMAScript specification.</p>
-                        <button type="button" class="btn btn-danger mt-3" data-toggle="modal" data-target="#playModal">Play with</button>
+                <!-- Third Card - Javascript -->
+                <div class="col">
+                    <div class="card shadow-sm h-100">
+                        <div class="card-header bg-primary text-white">
+                            Coding
+                        </div>
+                        <img src="https://via.placeholder.com/450x200" class="card-img-top" alt="JavaScript image">
+                        <div class="card-body">
+                            <h5 class="card-title">Javascript</h5>
+                            <p class="card-text">JavaScript, often abbreviated as JS, is a programming language that conforms to the ECMAScript specification.</p>
+                            <button class="btn btn-danger" data-toggle="modal" data-target="#playModal">Play with</button>
+                        </div>
+                        <div class="card-footer text-muted">
+                            70h
+                        </div>
                     </div>
-                    <div class="card-footer text-muted">70h</div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <!-- Modal -->
-    <div class="modal fade" id="playModal" tabindex="-1" role="dialog" aria-labelledby="playModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="playModalLabel">Play with CodePen</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <p>CodePen is an online community for testing and showcasing user-created HTML, CSS and JavaScript code snippets. It functions as an online code editor and open-source learning environment, where developers can create code snippets, called "pens," and test them.</p>
-                    <p>It was founded in 2012 by full-stack developers Alex Vazquez and Tim Sabat and front-end designer Chris Coyier. Its employees work remotely, rarely all meeting together in person.</p>
-                    <p>CodePen is one of the largest communities for web designers and developers to showcase their coding skills, with an estimated 330,000 registered users and 14.16 million monthly visitors.</p>
-
-                    <form class="border-top pt-3">
-                        <div class="mb-3">
-                            <h5>Connect</h5>
-                        </div>
-                        <div class="mb-3">
-                            <label for="username" class="col-form-label">Username:</label>
-                            <input type="text" class="form-control" id="username">
-                        </div>
-                        <div class="mb-3">
-                            <label for="password" class="col-form-label">Password:</label>
-                            <input type="password" class="form-control" id="password">
-                        </div>
-                        <button type="submit" class="btn btn-primary">Connect</button>
+        <!-- Modal -->
+        <div id="playModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="playModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 id="playModalLabel" class="modal-title">Play with CodePen</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
                     </div>
-                </form>
+                    <div class="modal-body">
+                        <p>CodePen is an online community for testing and showcasing user-created HTML, CSS and JavaScript code snippets.</p>
+                        <p>It functions as an online code editor and open-source learning environment, where developers can create code snippets, called "pens," and test them.</p>
+                        <p>It was founded in 2012 by full-stack developers Alex Vazquez and Tim Sabat and front-end designer Chris Coyier.</p>
+                        <p>CodePen is one of the largest communities for web designers and developers to showcase their coding skills, with an estimated 330,000 registered users and 14.16 million monthly visitors.</p>
+
+                        <!-- Form with border-top and padding-top -->
+                        <form>
+                            <div class="form-group">
+                                <h5>Connect</h5>
+                            </div>
+                            <div class="form-group">
+                                <label for="username">Username</label>
+                                <input type="text" class="form-control" id="username" placeholder="Enter username">
+                            </div>
+                            <div class="form-group">
+                                <label for="password">Password</label>
+                                <input type="password" class="form-control" id="password" placeholder="Password">
+                            </div>
+                            <div class="form-group pt-2 border-top">
+                                <button type="submit" class="btn btn-primary">Connect</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-</body>
+    </body>
 </html>
