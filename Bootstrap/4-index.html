@@ -14,18 +14,17 @@
     <body class="bg-dark text-white">
         <div class="container bg-light p-3">
             <h1 class="mt-4 mb-4">Bob Dylan</h1>
-
-            <ul>
-                <li>
-                    <a>Introduction</a>
+             <ul class="nav nav-tabs">
+                <li class="nav-item">
+                    <a class="nav-link active" id="intro-tab" data-toggle="tab" href="#intro">Introduction</a>
                 </li>
-                <li>
-                    <a>Discography</a>
+                <li class="nav-item">
+                    <a class="nav-link" id="discography-tab" href="discography">Discography</a>
                 </li>
             </ul>
-            <div>
+            <div class="tab-content mt-4">
 
-                <div>
+                <div id="intro" class="tab-pane fade show active">
                     <p>
                         Bob Dylan (born Robert Allen Zimmerman; May 24, 1941) is an American singer-songwriter, author, and visual artist who has been a major figure in popular culture for more than fifty years. 
                     </p>
@@ -35,7 +34,7 @@
                     </p>
                 </div>
 
-                <div>
+                <div id="discography" class="tab-pane fade">
                     <ul>
                         <li>
                             <a>Bob Dylan <em>(1962)</em></a>
