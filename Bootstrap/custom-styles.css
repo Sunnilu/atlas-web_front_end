@@ -1,0 +1,41 @@
+/* Button styles */
+.btn-primary {
+    background-color: #E0003C !important;
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active {
+    background-color: #BC1340 !important;
+}
+
+.btn-outline-primary {
+    color: #E0003C !important;
+    border-color: #E0003C !important;
+}
+
+/* Link styles */
+a {
+    color: #E0003C !important;
+}
+
+a:hover,
+a:focus {
+    color: #E0003C !important;
+}
+
+/* Card styles */
+.card {
+    border-color: #E0003C !important;
+    border-radius: 1rem !important;
+}
+
+.card-header,
+.card-footer {
+    border-color: #E0003C !important;
+}
+
+/* Text muted style */
+.text-muted {
+    color: #8C8C8C !important;
+}
