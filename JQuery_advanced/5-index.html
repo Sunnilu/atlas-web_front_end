@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Family Tree Table</title>
+    <style>
+        /* Add CSS to style the delete cell */
+        .delete-cell {
+            background-color: orange;
+            cursor: pointer;
+            text-align: center;
+            font-weight: bold;
+        }
+    </style>
+    <!-- Load the slim & minified version of jQuery from the CDN -->
+    <script src="https://code.jquery.com/jquery-3.6.4.slim.min.js"></script>
+</head>
+<body>
+
+    <script>
+        // Define the createFamilyTree function
+        function createFamilyTree() {
+            $('<table border="1"></table>')
+                .append(
+                    // Create the thead and add header row with cells for Firstname and Lastname
+                    $('<thead></thead>').append(
+                        $('<tr></tr>').append(
+                            $('<th></th>').text('Firstname'),
+                            $('<th></th>').text('Lastname'),
+                            $('<th></th>').text('Action') // Add header for delete action
+                        )
+                    ),
+                    // Append an empty tbody to the table
+                    $('<tbody></tbody>')
+                )
+                .appendTo('body');
+        }
+
+        // Define the addNewMember function
+        function addNewMember(firstName, lastName) {
+            // Create a new row with three cells
+            var newRow = $('<tr></tr>')
+                .append(
+                    $('<td></td>').text(firstName), // First cell with firstName
+                    $('<td></td>').text(lastName),  // Second cell with lastName
+                    $('<td></td>')
+                        .text('(x)') // Third cell with text "(x)"
+                        .addClass('delete-cell') // Add class for styling
+                        .click(function() {
+                            // On click, remove the row
+                            $(this).closest('tr').remove();
+                        })
+                );
+            
+            // Append the new row to the tbody
+            $('table tbody').append(newRow);
+        }
+
+        // Call the createFamilyTree function to generate and display the table
+        createFamilyTree();
+
+        // Using addNewMember to generate the fake table with the required rows
+        addNewMember('Guillaume', 'Salva');
+        addNewMember('Arielle', 'Snizt');
+        addNewMember('Fanette', 'Snizt');
+        addNewMember('Gerard', 'Snizt');
+        addNewMember('Victor', 'Salva');
+    </script>
+
+</body>
+</html>
+
