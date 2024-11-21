@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Family Tree Table</title>
+    <!-- Load the slim & minified version of jQuery from the CDN -->
+    <script src="https://code.jquery.com/jquery-3.6.4.slim.min.js"></script>
+</head>
+<body>
+
+    <script>
+        // Define the createFamilyTree function
+        function createFamilyTree() {
+            $('<table border="1"></table>')
+                .append(
+                    $('<thead></thead>').append(
+                        $('<tr></tr>').append(
+                            $('<th></th>').text('Firstname'),
+                            $('<th></th>').text('Lastname')
+                        )
+                    ),
+                    $('<tbody></tbody>').append(
+                        $('<tr></tr>').append(
+                            $('<td></td>').text('Guillaume'),
+                            $('<td></td>').text('Salva')
+                        ),
+                        $('<tr></tr>').append(
+                            $('<td></td>').text('Paulette'),
+                            $('<td></td>').text('Salva')
+                        ),
+                        $('<tr></tr>').append(
+                            $('<td></td>').text('Antoine'),
+                            $('<td></td>').text('Salva')
+                        )
+                    )
+                )
+                .appendTo('body');
+        }
+
+        // Define the replaceFamilyTree function
+        function replaceFamilyTree() {
+            // Replace the tbody content with a new tr containing Gerard and Bonissa
+            $('table tbody').html(
+                $('<tr></tr>').append(
+                    $('<td></td>').text('Gerard'),
+                    $('<td></td>').text('Bonissa')
+                )
+            );
+        }
+
+        // Call the createFamilyTree function to generate and display the table
+        createFamilyTree();
+
+        // Call the replaceFamilyTree function to replace the table body content
+        replaceFamilyTree();
+    </script>
+
+</body>
+</html>
