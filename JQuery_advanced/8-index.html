@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wikipedia Search</title>
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-    <style>
-        #pagination {
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script> 
+    <style>  
+        #pagination {  
             list-style-type: none;
             padding: 0;
             margin: 0;
@@ -19,7 +19,7 @@
         #pagination li.active {
             font-weight: bold;
         }
-    </style>
+    </style> 
 </head>
 <body>
 
@@ -75,7 +75,7 @@ $(document).ready(function() {
         });
     }
 
-    function buildPagination(totalItems, itemsPerPage, currentOffset) { // Create a new function named buildPagination.
+    function buildPagination(totalItems, itemsPerPage, currentOffset) { // Create a new function named buildPagination that resets the pagination list and builds page numbers bsed on the total hits
         $('#pagination').empty();
         let totalPages = Math.ceil(totalItems / itemsPerPage);
         
@@ -90,7 +90,7 @@ $(document).ready(function() {
             let clickedPage = parseInt($(this).text());
             let newOffset = (clickedPage - 1) * itemsPerPage;
             queryWikipedia($('#searchForm input[type="text"]').val(), newOffset);
-        });
+        }); // I also added CSS styles to display pagination horizontally at the top and highlight the active page, Implemented the click event handlers for pagination links to update the search results when a different page is selected
     }
 });
 </script>
