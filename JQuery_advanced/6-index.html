@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Family Tree Table</title>
+    <style>
+        /* Add CSS to style the delete cell */
+        .delete-cell {
+            background-color: orange;
+            cursor: pointer;
+            text-align: center;
+            font-weight: bold;
+        }
+    </style>
+    <!-- Load the slim & minified version of jQuery from the CDN -->
+    <script src="https://code.jquery.com/jquery-3.6.4.slim.min.js"></script>
+</head>
+<body>
+
+    <script>
+        // Define the createFamilyTree function
+        function createFamilyTree() {
+            $('<table border="1"></table>')
+                .append(
+                    // Create the thead and add header row with cells for Firstname and Lastname
+                    $('<thead></thead>').append(
+                        $('<tr></tr>').append(
+                            $('<th></th>').text('Firstname'),
+                            $('<th></th>').text('Lastname')
+                        )
+                    ),
+                    // Append an empty tbody to the table
+                    $('<tbody></tbody>')
+                )
+                .appendTo('body');
+        }
+
+        // Define the addNewMember function with position argument
+        function addNewMember(firstName, lastName, position) {
+            // Create a new row with three cells
+            var newRow = $('<tr></tr>')
+                .append(
+                    $('<td></td>').text(firstName), // First cell with firstName
+                    $('<td></td>').text(lastName),  // Second cell with lastName
+                    $('<td></td>')
+                        .text('(x)') // Third cell with text "(x)"
+                        .addClass('delete-cell') // Add class for styling
+                        .click(function() {
+                            // On click, remove the row
+                            $(this).closest('tr').remove();
+                        })
+                );
+
+            // Conditionally append the row to the top or bottom based on the position argument
+            if (position === 'before') {
+                // Append the row at the top of the tbody (before the first row)
+                $('table tbody').prepend(newRow);
+            } else {
+                // Default behavior: append the row at the bottom of the tbody
+                $('table tbody').append(newRow);
+            }
+        }
+
+        // Define the createForm function
+        function createForm() {
+            // Create and add the form before the table
+            var form = $('<form></form>')
+                .append(
+                    // Add a first text input for first name
+                    $('<input type="text" placeholder="First Name" id="firstNameInput">'),
+                    // Add a second text input for last name (using nth-of-type selector)
+                    $('<input type="text" placeholder="Last Name">'),
+                    // Add a select dropdown with options before and after
+                    $('<select id="positionSelect"></select>')
+                        .append(
+                            $('<option></option>').val('before').text('Before'),
+                            $('<option></option>').val('after').text('After')
+                        ),
+                    // Add the submit button
+                    $('<input type="submit" value="Add Member">')
+                )
+                .prependTo('body'); // I used the prependTo to move to bottom of cells
+
+            // Handle form submission
+            form.submit(function(e) {
+                e.preventDefault(); // Prevent the form from refreshing the page
+
+                // Get the values from the inputs
+                var firstName = $('#firstNameInput').val();
+                var lastName = $('input:nth-of-type(2)').val(); // Use nth-of-type for the second input (last name)
+                var position = $('#positionSelect').val();
+
+                // Call addNewMember to add the new member to the table
+                addNewMember(firstName, lastName, position);
+
+                // Clear the inputs after adding
+                $('#firstNameInput').val('');
+                $('input:nth-of-type(2)').val('');
+            });
+        }
+
+        // Call the createFamilyTree function to generate and display the table
+        createFamilyTree();
+
+        // Call the createForm function to generate and display the form
+        createForm();
+    </script>
+
+</body>
+</html>
+
+
+
