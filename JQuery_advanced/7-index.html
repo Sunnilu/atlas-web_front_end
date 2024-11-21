@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wikipedia Search</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+</head>
+<body>
+
+<script>
+$(document).ready(function() {
+    createSearchForm();
+
+    function createSearchForm() { // Create a function that should append to the body that has and empty input of text and submitt.
+        $('body').append(`
+            <form id="searchForm">
+                <input type="text" placeholder="Search Wikipedia..."> 
+                <input type="submit" value="Search">
+            </form>
+            <ul id="resultsList"></ul>
+        `);
+
+        $('#searchForm').submit(function(e) {  // When the user clicks on the submit button it should query the function queryWikipedia they are going to create with the value of input.
+            e.preventDefault();
+            var searchTerm = $(this).find('input[type="text"]').val();
+            queryWikipedia(searchTerm);
+        });
+    }
+
+    function addNewArticle(id, title, snippet) { // To add new items to a list that accepts three items Id, title, snippet all a string, added two paragraphs within it.
+        $('#resultsList').append(`
+            <li>
+                <p><span>${id}</span> - <b>${title}</b></p> 
+                <p>${snippet}</p>
+            </li>
+        `);
+    }
+
+    function queryWikipedia(search) { // AJAX to get new data and use it in a page that is already loaded. hopefully!
+        $.ajax({  // URL is so the browser knows where the file is in WordPress so that it can process the request
+            url: 'https://en.wikipedia.org/w/api.php',
+            dataType: 'jsonp',
+            data: {
+                action: 'query', // so the action can't be followed by a third party so we added Query
+                format: 'json',
+                list: 'search',
+                srsearch: search,
+                origin: '*'
+            },
+            success: function(data) {
+                $.each(data.query.search, function(index, result) {
+                    addNewArticle(result.pageid, result.title, result.snippet);
+                });
+            }
+        });
+    }
+});
+</script>
+
+</body>
+</html>
