@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Family Tree Table</title>
+    <!-- Load the slim & minified version of jQuery from the CDN -->
+    <script src="https://code.jquery.com/jquery-3.6.4.slim.min.js"></script>
+</head>
+<body>
+
+    <script>
+        // Define the createFamilyTree function
+        function createFamilyTree() {
+            // Create the entire table as a string
+            var tableHTML = `
+                <table border="1">
+                    <thead>
+                        <tr>
+                            <th>Firstname</th>
+                            <th>Lastname</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Guillaume</td>
+                            <td>Salva</td>
+                        </tr>
+                        <tr>
+                            <td>Paulette</td>
+                            <td>Salva</td>
+                        </tr>
+                        <tr>
+                            <td>Antoine</td>
+                            <td>Salva</td>
+                        </tr>
+                    </tbody>
+                </table>
+            `;
+            // Append the table to the body of the page as a string using jQuery
+            $('body').append(tableHTML);
+        }
+
+        // Call the createFamilyTree function to generate and display the table
+        createFamilyTree();
+    </script>
+
+</body>
+</html>
+
