@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wikipedia Search</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <style>
+        #pagination {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
+        #pagination li {
+            margin-left: 10px;
+            cursor: pointer;
+        }
+        #pagination li.active {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<script>
+$(document).ready(function() {
+    createSearchForm();
+
+    function createSearchForm() {
+        $('body').append(`
+            <form id="searchForm">
+                <input type="text" placeholder="Search Wikipedia...">
+                <input type="submit" value="Submit">
+            </form>
+            <ul id="resultsList"></ul>
+            <ul id="pagination"></ul>
+        `);
+
+        $('#searchForm').submit(function(e) {
+            e.preventDefault();
+            var searchTerm = $(this).find('input[type="text"]').val();
+            queryWikipedia(searchTerm, 0);
+        });
+    }
+
+    function addNewArticle(id, title, snippet) {
+        $('#resultsList').append(`
+            <li>
+                <p><span>${id}</span> - <b>${title}</b></p>
+                <p>${snippet}</p>
+            </li>
+        `);
+    }
+
+    function queryWikipedia(search, offset = 0) {  //Modify the data object to add the offset a new parameter 
+        $.ajax({
+            url: 'https://en.wikipedia.org/w/api.php',
+            dataType: 'jsonp',
+            data: {
+                action: 'query',
+                format: 'json',
+                list: 'search',
+                srsearch: search,
+                sroffset: offset,
+                origin: '*'
+            },
+            success: function(data) {
+                $('#resultsList').empty();
+                $.each(data.query.search, function(index, result) {
+                    addNewArticle(result.pageid, result.title, result.snippet);
+                }); // After I receive a response from te API
+                buildPagination(data.query.searchinfo.totalhits, 10, offset);
+            }
+        });
+    }
+
+    function buildPagination(totalItems, itemsPerPage, currentOffset) { // Create a new function named buildPagination.
+        $('#pagination').empty();
+        let totalPages = Math.ceil(totalItems / itemsPerPage);
+        
+        for (let i = 0; i < totalPages; i++) {  // if accepts three arguments numberOfItems, itemsPerPage, currentOffset.
+            let pageNumber = i + 1;
+            let isActive = (i * itemsPerPage) <= currentOffset && ((i + 1) * itemsPerPage) > currentOffset;
+            
+            $('#pagination').append(`<li ${(isActive ? 'class="active"' : '')}>${pageNumber}</li>`); // When the function is called, reset the pagination list to an empty tag
+        }
+
+        $('#pagination li').on('click', function() {
+            let clickedPage = parseInt($(this).text());
+            let newOffset = (clickedPage - 1) * itemsPerPage;
+            queryWikipedia($('#searchForm input[type="text"]').val(), newOffset);
+        });
+    }
+});
+</script>
+
+</body>
+</html>
