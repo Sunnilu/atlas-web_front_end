@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Text Element</title>
+    <!-- Load the slim & minified version of jQuery from the CDN -->
+    <script src="https://code.jquery.com/jquery-3.6.4.slim.min.js"></script>
+</head>
+<body>
+
+    <script>
+        // Define the createTextElement function
+        function createTextElement() {
+            // Create a new p element
+            var p = $('<p></p>');
+            // Set the content of the paragraph
+            p.text("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in diam risus. Nunc sit amet euismod ipsum. Aenean tempus ex sed est volutpat, sed sodales velit tempus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Proin auctor sollicitudin eleifend. Vivamus porta enim vitae mauris commodo, vitae tempor tellus elementum. Quisque sed pellentesque nulla, at eleifend nisi. Phasellus eget tincidunt ex. Lorem ipsum dolor sit amet, consectetur adipiscing elit.");
+            // Append the paragraph to the body of the page
+            $('body').append(p);
+        }
+
+        // Call the createTextElement function to add the paragraph to the page
+        createTextElement();
+    </script>
+    
+</body>
+</html>
