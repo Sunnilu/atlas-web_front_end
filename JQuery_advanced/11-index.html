@@ -45,76 +45,77 @@
 
     // Function to build the form
     function buildForm() {
-      // Create the form element
+      // Create a form element
       const form = $('<form></form>');
       
-      // Add a div for the Author input
+      // Create a div for the author field
       const authorDiv = $('<div></div>');
       authorDiv.append('<label for="author">Author</label>');
-      authorDiv.append('<input type="text" id="author" name="author" />');
-      form.append(authorDiv);
+      authorDiv.append('<input type="text" id="author" name="author" required>');
       
-      // Add a div for the Title input
+      // Create a div for the title field
       const titleDiv = $('<div></div>');
       titleDiv.append('<label for="title">Title</label>');
-      titleDiv.append('<textarea id="title" name="title"></textarea>');
-      form.append(titleDiv);
+      titleDiv.append('<textarea id="title" name="title" required></textarea>');
       
-      // Add a submit button
-      form.append('<input type="submit" value="Submit" />');
+      // Create a submit button
+      const submitButton = $('<input type="submit" value="Submit">');
+      
+      // Append fields and submit button to the form
+      form.append(authorDiv);
+      form.append(titleDiv);
+      form.append(submitButton);
       
       // Append the form to the body
       $('body').append(form);
       
-      // Handle form submission on Enter press without reloading the page
+      // Handle form submission
       form.on('submit', function(event) {
-        event.preventDefault();  // Prevent default form submission
-        sendForm();
+        event.preventDefault(); // Prevent the default form submission
+        sendForm(); // Call sendForm function when form is submitted
       });
 
-      // When clicking the label, select the corresponding input
-      form.find('label').on('click', function() {
+      // When label is clicked, focus on the corresponding input field
+      $('label').on('click', function() {
         const inputId = $(this).attr('for');
         $('#' + inputId).focus();
       });
     }
 
-    // Function to send the form data to the API
+    // Function to send the form data to the server
     function sendForm() {
-      // Add the "About to send the query" text after the form
-      $('form').after('<p>About to send the query to the API...</p>');
-      
-      // Create the data object with title and author from the form inputs
+      // Add text indicating that we are about to send the query
+      $('body').after('<p>About to send the query to the API...</p>');
+
+      // Get the values of the inputs
+      const title = $('#title').val();
+      const author = $('#author').val();
+
+      // Create a data object with the title and author
       const data = {
-        title: $('#title').val(),
-        author: $('#author').val()
+        title: title,
+        author: author
       };
-      
-      // Send a POST request to the API
-      $.ajax({
-        url: 'http://localhost:3000/posts',
-        method: 'POST',
-        data: data,
-        success: function(response) {
-          // On success, call addPostRow with the response from the API
-          addPostRow(response);
-        },
-        error: function() {
-          // On error, show an alert
-          alert('Error sending the POST query');
-        }
+
+      // Send the data via a POST request to the server
+      $.post('http://localhost:3000/posts', data, function(response) {
+        // If the request is successful, add the new post to the list
+        addPostRow(response);
+      }).fail(function() {
+        // If the request fails, show an error message
+        alert('Error sending the POST query');
       });
     }
 
-    // Call the functions when the page loads
+    // Call the listPosts and buildForm functions when the page loads
     $(document).ready(function() {
-      listPosts();
-      buildForm();
+      listPosts();  // List the posts initially
+      buildForm();  // Build the form for submitting new posts
     });
   </script>
-
 </body>
 </html>
+
 
 
 
