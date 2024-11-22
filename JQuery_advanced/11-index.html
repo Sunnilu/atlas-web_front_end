@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Posts List</title>
+  <!-- Import jQuery from CDN -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+  <h1>Posts</h1>
+  
+  <!-- Content will be added dynamically by JavaScript -->
+  
+  <script>
+    // Function to add a post row
+    function addPostRow(data) {
+      // Create a new paragraph element
+      const paragraph = $('<p></p>');
+      
+      // Create a span element with formatted text
+      const postText = `Post created with id ${data.id}, title: ${data.title}, author: ${data.author}`;
+      
+      // Add the text to the span and append it to the paragraph
+      paragraph.append(`<span>${postText}</span>`);
+      
+      // Append the paragraph to the body of the document
+      $('body').append(paragraph);
+    }
+
+    // Function to list posts from the server
+    function listPosts() {
+      // Use jQuery's get method to fetch posts from the local server
+      $.get('http://localhost:3000/posts', function(response) {
+        // Loop through each post in the response and add it using addPostRow
+        response.forEach(function(post) {
+          addPostRow(post);
+        });
+      }).fail(function() {
+        // If the request fails, alert the user with a server error message
+        alert('Server Error');
+      });
+    }
+
+    // Function to build the form
+    function buildForm() {
+      // Create the form element
+      const form = $('<form></form>');
+      
+      // Add a div for the Author input
+      const authorDiv = $('<div></div>');
+      authorDiv.append('<label for="author">Author</label>');
+      authorDiv.append('<input type="text" id="author" name="author" />');
+      form.append(authorDiv);
+      
+      // Add a div for the Title input
+      const titleDiv = $('<div></div>');
+      titleDiv.append('<label for="title">Title</label>');
+      titleDiv.append('<textarea id="title" name="title"></textarea>');
+      form.append(titleDiv);
+      
+      // Add a submit button
+      form.append('<input type="submit" value="Submit" />');
+      
+      // Append the form to the body
+      $('body').append(form);
+      
+      // Handle form submission on Enter press without reloading the page
+      form.on('submit', function(event) {
+        event.preventDefault();  // Prevent default form submission
+        sendForm();
+      });
+
+      // When clicking the label, select the corresponding input
+      form.find('label').on('click', function() {
+        const inputId = $(this).attr('for');
+        $('#' + inputId).focus();
+      });
+    }
+
+    // Function to send the form data to the API
+    function sendForm() {
+      // Add the "About to send the query" text after the form
+      $('form').after('<p>About to send the query to the API...</p>');
+      
+      // Create the data object with title and author from the form inputs
+      const data = {
+        title: $('#title').val(),
+        author: $('#author').val()
+      };
+      
+      // Send a POST request to the API
+      $.ajax({
+        url: 'http://localhost:3000/posts',
+        method: 'POST',
+        data: data,
+        success: function(response) {
+          // On success, call addPostRow with the response from the API
+          addPostRow(response);
+        },
+        error: function() {
+          // On error, show an alert
+          alert('Error sending the POST query');
+        }
+      });
+    }
+
+    // Call the functions when the page loads
+    $(document).ready(function() {
+      listPosts();
+      buildForm();
+    });
+  </script>
+
+</body>
+</html>
+
+
+
