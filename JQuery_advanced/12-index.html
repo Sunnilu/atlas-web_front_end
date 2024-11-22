@@ -4,127 +4,136 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Posts List</title>
+  <!-- Import jQuery from CDN -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
 
   <h1>Posts</h1>
   
-  <div id="posts-container"></div>
+  <!-- Content will be added dynamically by JavaScript -->
   
   <script>
-    $(document).ready(function() {
-        function listPosts() {
-            $.get('http://localhost:3000/posts', function(response) {
-            $.each(response, function(index, post) {
-                $('#posts-container').append(`
-                    <div class="post">
-                        <h2>Post ${post.id}: ${post.title}</h2>
-                        <p>Author: ${post.author}</p>
-                        <p>Content: ${post.content}</p>
-                    </div>
-                `);
-            });
-        }).fail(function() {
-            alert('Failed to load posts');
-        });
-    }
-
-    listPosts();
-});
-        
     // Function to add a post row
     function addPostRow(data) {
-      const paragraph = $('<p></p>').attr('id', `row-${data.id}`);
+      // Create a new paragraph element for the post
+      const paragraph = $('<p></p>').attr('id', 'row-' + data.id);
       
-      const deleteSpan = $('<span></span>').text('(delete)').on('click', () => deletePost(data.id));
+      // Create a span element for the delete button and append it before post information
+      const deleteSpan = $('<span></span>').text('Delete').css('color', 'red').css('cursor', 'pointer').on('click', function() {
+        deletePost(data.id); // Call deletePost with the post ID
+      });
+
+      // Create a span element with the formatted post information
       const postText = `Post created with id ${data.id}, title: ${data.title}, author: ${data.author}`;
+
+      // Append the delete span and post information to the paragraph
+      paragraph.append(deleteSpan).append(' | ').append(postText);
       
-      paragraph.append(deleteSpan).append(`<span>${postText}</span>`);
-      
+      // Append the paragraph to the body of the document
       $('body').append(paragraph);
     }
 
-    // Function to delete a post
-    function deletePost(id) {
-      $.ajax({
-        url: `http://localhost:3000/posts/${id}`,
-        method: 'DELETE',
-        success: function() {
-          $(`#row-${id}`).remove();
-        },
-        error: function() {
-          alert('Post was not deleted');
-        }
+    // Function to list posts from the server
+    function listPosts() {
+      // Use jQuery's get method to fetch posts from the local server
+      $.get('http://localhost:3000/posts', function(response) {
+        // Loop through each post in the response and add it using addPostRow
+        response.forEach(function(post) {
+          addPostRow(post);
+        });
+      }).fail(function() {
+        // If the request fails, alert the user with a server error message
+        alert('Server Error');
       });
     }
 
     // Function to build the form
     function buildForm() {
+      // Create a form element
       const form = $('<form></form>');
-
+      
+      // Create a div for the author field
       const authorDiv = $('<div></div>');
       authorDiv.append('<label for="author">Author</label>');
-      authorDiv.append('<input type="text" id="author" name="author" />');
-      form.append(authorDiv);
+      authorDiv.append('<input type="text" id="author" name="author" required>');
       
+      // Create a div for the title field
       const titleDiv = $('<div></div>');
       titleDiv.append('<label for="title">Title</label>');
-      titleDiv.append('<textarea id="title" name="title"></textarea>');
+      titleDiv.append('<textarea id="title" name="title" required></textarea>');
+      
+      // Create a submit button
+      const submitButton = $('<input type="submit" value="Submit">');
+      
+      // Append fields and submit button to the form
+      form.append(authorDiv);
       form.append(titleDiv);
+      form.append(submitButton);
       
-      form.append('<input type="submit" value="Submit" />');
-      
+      // Append the form to the body
       $('body').append(form);
       
+      // Handle form submission
       form.on('submit', function(event) {
-        event.preventDefault();
-        sendForm();
+        event.preventDefault(); // Prevent the default form submission
+        sendForm(); // Call sendForm function when form is submitted
       });
 
-      form.find('label').on('click', function() {
+      // When label is clicked, focus on the corresponding input field
+      $('label').on('click', function() {
         const inputId = $(this).attr('for');
         $('#' + inputId).focus();
       });
     }
 
-    // Function to send the form data to the API
+    // Function to send the form data to the server
     function sendForm() {
-    // Remove the previous "About to send the query" paragraph if it exists
-    $('form + p').remove();
+      // Add text indicating that we are about to send the query
+      $('body').after('<p>About to send the query to the API...</p>');
 
-    // Add the "About to send the query" text after the form
-    $('form').after('<p>About to send the query to the API...</p>');
-    
-    const data = {
-        title: $('#title').val(),
-        author: $('#author').val()
-    };
-    
-    $.ajax({
-        url: 'http://localhost:3000/posts',
-        method: 'POST',
-        data: data,
-        success: function(response) {
-            addPostRow(response);
-            
-            // Remove the "About to send the query" paragraph after successful submission
-            $('form + p').remove();
+      // Get the values of the inputs
+      const title = $('#title').val();
+      const author = $('#author').val();
+
+      // Create a data object with the title and author
+      const data = {
+        title: title,
+        author: author
+      };
+
+      // Send the data via a POST request to the server
+      $.post('http://localhost:3000/posts', data, function(response) {
+        // If the request is successful, add the new post to the list
+        addPostRow(response);
+      }).fail(function() {
+        // If the request fails, show an error message
+        alert('Error sending the POST query');
+      });
+    }
+
+    // Function to delete a post by ID
+    function deletePost(id) {
+      // Send a DELETE request to remove the post from the server
+      $.ajax({
+        url: `http://localhost:3000/posts/${id}`,
+        type: 'DELETE',
+        success: function() {
+          // If the delete is successful, remove the post from the DOM
+          $('#row-' + id).remove();
         },
         error: function() {
-            alert('Error sending the POST query');
-            
-            // Remove the "About to send the query" paragraph after failed submission
-            $('form + p').remove();
+          // If the request fails, show an error message
+          alert('Post was not deleted');
         }
-    });
-}
+      });
+    }
 
+    // Call the listPosts and buildForm functions when the page loads
     $(document).ready(function() {
-      listPosts();
-      buildForm();
+      listPosts();  // List the posts initially
+      buildForm();  // Build the form for submitting new posts
     });
   </script>
-
 </body>
 </html>
