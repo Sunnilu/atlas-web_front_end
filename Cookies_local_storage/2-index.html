@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cookie Example with Expiry and Cookie Retrieval</title>
+</head>
+<body>
+  <!-- Text inputs for firstname and email -->
+  <input type="text" id="firstname" placeholder="Enter your first name">
+  <input type="email" id="email" placeholder="Enter your email">
+
+  <!-- Buttons to trigger the actions -->
+  <button onclick="setCookies()">Log me in</button>
+  <button onclick="showCookies()">Show the cookies</button>
+
+  <script>
+    // Function to set cookies with a 10-day expiration
+    function setCookies() {
+      // Get values from the input fields
+      const firstname = document.getElementById('firstname').value;
+      const email = document.getElementById('email').value;
+
+      // Create a date object for 10 days from now
+      const expiryDate = new Date();
+      expiryDate.setDate(expiryDate.getDate() + 10);
+
+      // Format the date in UTC format (expires attribute format)
+      const expires = "expires=" + expiryDate.toUTCString();
+
+      // Set cookies for firstname and email with expiration
+      document.cookie = "firstname=" + encodeURIComponent(firstname) + "; " + expires + "; path=/";
+      document.cookie = "email=" + encodeURIComponent(email) + "; " + expires + "; path=/";
+    }
+
+    // Function to retrieve a cookie by name
+    function getCookie(name) {
+      const cookies = document.cookie.split(';');
+      for (let i = 0; i < cookies.length; i++) {
+        let cookie = cookies[i].trim();
+        if (cookie.startsWith(name + "=")) {
+          return decodeURIComponent(cookie.substring(name.length + 1));
+        }
+      }
+      return '';  // Return empty string if cookie not found
+    }
+
+    // Function to show cookies in the correct format
+    function showCookies() {
+      // Retrieve the values of firstname and email from cookies
+      const firstname = getCookie('firstname');
+      const email = getCookie('email');
+
+      // Create a new p element
+      const p = document.createElement('p');
+      
+      // Display the cookies in the desired format: "Email: EMAIL - Firstname: FIRSTNAME"
+      p.innerHTML = "Email: " + email + " - Firstname: " + firstname;
+      
+      // Append the p element at the bottom of the page
+      document.body.appendChild(p);
+    }
+  </script>
+</body>
+</html>
