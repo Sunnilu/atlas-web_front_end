@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cookie Example with Expiry and Cookie Retrieval</title>
+  <style>
+    /* Styling the logout link */
+    .logout-link {
+      font-weight: normal;
+      font-style: italic;
+      margin-left: 10px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <!-- Container div for the login form -->
+  <div id="login-website-container">
+    <h2>Login to the Website</h2>
+    <!-- Text inputs for firstname and email -->
+    <input type="text" id="firstname" placeholder="Enter your first name">
+    <input type="email" id="email" placeholder="Enter your email">
+
+    <!-- Buttons to trigger the actions -->
+    <button onclick="setCookiesAndShowWelcomeMessage()">Log me in</button>
+  </div>
+
+  <!-- This is where the Welcome message will go -->
+  <div id="welcome-message"></div>
+
+  <!-- Button to show the login form -->
+  <button onclick="showForm()">Show Login Website</button>
+
+  <!-- Button to hide the login form -->
+  <button onclick="hideForm()">Hide Login Form</button>
+
+  <!-- Button to delete cookies and show the form -->
+  <button onclick="deleteCookiesAndShowForm()">Delete Cookies and Show Form</button>
+
+  <!-- Button to show the welcome message or form based on login status -->
+  <button onclick="showWelcomeMessageOrForm()">Show Welcome or Form</button>
+
+  <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js"></script>
+  <script>
+    // Function to set cookies with a 10-day expiration and show welcome message
+    function setCookiesAndShowWelcomeMessage() {
+      // Get values from the input fields
+      const firstname = document.getElementById('firstname').value;
+      const email = document.getElementById('email').value;
+
+      // Set cookies for firstname and email with expiration
+      Cookies.set("firstname", firstname, { expires: 10 });
+      Cookies.set("email", email, { expires: 10 });
+
+      // Call showWelcomeMessageOrForm to display the welcome message
+      showWelcomeMessageOrForm();
+    }
+
+    // Function to show the login form and remove the Welcome message (if it exists)
+    function showForm() {
+      // Remove the Welcome message if it exists
+      const welcomeMessage = document.getElementById('welcome-message');
+      if (welcomeMessage) {
+        welcomeMessage.style.display = 'none'; // Hide the Welcome message
+      }
+
+      // Show the login form
+      const loginForm = document.getElementById('login-website-container');
+      if (loginForm) {
+        loginForm.style.display = 'block'; // Make sure the form is visible
+      }
+    }
+
+    // Function to hide the login form
+    function hideForm() {
+      // Hide the login form
+      const loginForm = document.getElementById('login-website-container');
+      if (loginForm) {
+        loginForm.style.display = 'none'; // Hide the form
+      }
+    }
+
+    // Function to delete cookies and show the login form
+    function deleteCookiesAndShowForm() {
+      // Delete the firstname and email cookies
+      Cookies.remove('firstname');
+      Cookies.remove('email');
+
+      // Call showForm to display the login form
+      showForm();
+    }
+
+    // Function to show a welcome message or the login form depending on login status
+    function showWelcomeMessageOrForm() {
+      // Check if the user is logged in by checking if cookies are set
+      const firstname = Cookies.get('firstname');
+      const email = Cookies.get('email');
+
+      // If both cookies exist, the user is logged in
+      if (firstname && email) {
+        // Clear the current content and show the welcome message with the logout link
+        const welcomeMessage = document.getElementById('welcome-message');
+        welcomeMessage.style.display = 'block'; // Ensure the welcome message is visible
+
+        welcomeMessage.innerHTML = `Welcome, ${firstname} 
+          <span class="logout-link" onclick="deleteCookiesAndShowForm()">Logout</span>`;
+
+      } else {
+        // If not logged in, show the login form
+        showForm();
+      }
+    }
+  </script>
+</body>
+</html>
