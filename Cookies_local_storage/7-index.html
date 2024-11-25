@@ -37,7 +37,7 @@
   <h1>Advanced Shopping Cart</h1>
 
   <div id="available-items" class="item-list">
-    <!-- Store items will be added here dynamically -->
+    <!-- Store items all of the available items Shampoo, Soap, Sponge, Water  -->
   </div>
 
   <div id="cart" class="cart">
@@ -45,7 +45,7 @@
   </div>
 
   <script>
-    // Check if sessionStorage is available
+    // Check if sessionStorage is available if not enabled on the browser display this alert
     if (typeof(Storage) === "undefined") {
       alert("Sorry, your browser does not support Web storage. Try again with a better one.");
     } else {
@@ -53,7 +53,7 @@
       // Define available items
       const availableItems = ["Shampoo", "Soap", "Sponge", "Water"];
 
-      // Function to create the store display
+      // Function to create the store display if local storage is availabe should allow user to see application
       function createStore() {
         const storeDiv = document.getElementById("available-items");
 
@@ -62,7 +62,7 @@
         heading.textContent = "Available products:";
         storeDiv.appendChild(heading);
 
-        // Create a <ul> to hold the items
+        // Create a <ul> to hold the items and append it to the DOM
         const itemList = document.createElement("ul");
 
         // Loop through availableItems and create a <li> for each item
@@ -179,18 +179,18 @@
         displayCart();
       }
 
-      // Function to remove item from the cart
+      // Function to remove item from the cart it accepts item a string as argument
       function removeItemFromCart(item) {
         // Get the current cart from sessionStorage
         let cart = getCartFromStorage();
 
-        // Remove the item from the cart
+        // Remove the item from the cart it accepts item as argument, it removes the entire item from cart
         delete cart[item];
 
         // Store the updated cart back into sessionStorage as a JSON string
         sessionStorage.setItem("cart", JSON.stringify(cart));
 
-        // Update the cart display
+        // Update the cart display 
         displayCart();
       }
 
