@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Advanced Shopping Cart</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    .item-list, .cart {
+      margin-bottom: 20px;
+    }
+    button {
+      padding: 5px 10px;
+      margin: 5px;
+      cursor: pointer;
+    }
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    li {
+      padding: 10px;
+      background-color: #f4f4f4;
+      margin: 5px 0;
+      cursor: pointer;
+    }
+    li:hover {
+      background-color: #ddd;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Advanced Shopping Cart</h1>
+
+  <div id="available-items" class="item-list">
+    <!-- Store items will be added here dynamically -->
+  </div>
+
+  <div id="cart" class="cart">
+    <!-- Cart contents will be displayed here -->
+  </div>
+
+  <script>
+    // Check if sessionStorage is available
+    if (typeof(Storage) === "undefined") {
+      alert("Sorry, your browser does not support Web storage. Try again with a better one.");
+    } else {
+
+      // Define available items
+      const availableItems = ["Shampoo", "Soap", "Sponge", "Water"];
+
+      // Function to create the store display
+      function createStore() {
+        const storeDiv = document.getElementById("available-items");
+
+        // Add a heading to indicate "Available products"
+        const heading = document.createElement("h2");
+        heading.textContent = "Available products:";
+        storeDiv.appendChild(heading);
+
+        // Create a <ul> to hold the items
+        const itemList = document.createElement("ul");
+
+        // Loop through availableItems and create a <li> for each item
+        availableItems.forEach(item => {
+          const listItem = document.createElement("li");
+          listItem.textContent = item;
+          listItem.addEventListener("click", () => addItemToCart(item)); // Call addItemToCart on click
+          itemList.appendChild(listItem); // Add the list item to the <ul>
+        });
+
+        // Append the <ul> to the DOM
+        storeDiv.appendChild(itemList);
+      }
+
+      // Function to update the cart display
+      function updateCart() {
+        const cartDiv = document.getElementById("cart");
+
+        // Create a new div for displaying cart contents
+        const cartContentsDiv = document.createElement("div");
+
+        // Add a "Clear my cart" item at the top of the cart
+        const clearCartItem = document.createElement("li");
+        clearCartItem.textContent = "Clear my cart";
+        clearCartItem.style.fontWeight = "bold";
+        clearCartItem.style.cursor = "pointer";
+        clearCartItem.addEventListener("click", clearCart);
+        cartContentsDiv.appendChild(clearCartItem);
+
+        // Retrieve the cart data from sessionStorage
+        const cart = getCartFromStorage();
+
+        // Create a list for cart items
+        const cartList = document.createElement("ul");
+
+        // If cart is empty, display message
+        if (Object.keys(cart).length === 0) {
+          const emptyCartItem = document.createElement("li");
+          emptyCartItem.textContent = "Your cart is empty.";
+          cartList.appendChild(emptyCartItem);
+        } else {
+          // Otherwise, display items in the cart
+          for (const item in cart) {
+            if (cart[item].quantity > 0) {
+              const cartItem = document.createElement("li");
+              cartItem.textContent = `${item} x ${cart[item].quantity}`;
+
+              // Add Remove button for each item
+              const removeButton = document.createElement("button");
+              removeButton.textContent = "Remove";
+              removeButton.addEventListener("click", () => removeItemFromCart(item)); // Call removeItemFromCart on click
+              cartItem.appendChild(removeButton);
+
+              cartList.appendChild(cartItem);
+            }
+          }
+        }
+
+        // Append the cart list to the cart contents div
+        cartContentsDiv.appendChild(cartList);
+
+        // Check if a div already exists for displaying the cart, remove the old one if exists
+        const existingDiv = cartDiv.querySelector("div");
+        if (existingDiv) {
+          cartDiv.removeChild(existingDiv); // Remove the old div (clearing previous cart items)
+        }
+
+        // Append the new cart contents div to the cart div
+        cartDiv.appendChild(cartContentsDiv);
+      }
+
+      // Function to display the cart
+      function displayCart() {
+        const cartDiv = document.getElementById("cart");
+
+        // Add a heading "Your cart"
+        const heading = document.createElement("h2");
+        heading.textContent = "Your cart";
+        cartDiv.appendChild(heading);
+
+        // Call updateCart to display the latest cart items
+        updateCart();
+      }
+
+      // Function to get the cart from sessionStorage (parsing the JSON string)
+      function getCartFromStorage() {
+        const cartData = sessionStorage.getItem("cart");
+
+        // If no cart data is found, return an empty object
+        if (!cartData) {
+          return {};
+        }
+
+        // Parse the cart data string and return it as an object
+        return JSON.parse(cartData);
+      }
+
+      // Function to add item to the cart and sessionStorage
+      function addItemToCart(item) {
+        // Get the current cart from sessionStorage
+        let cart = getCartFromStorage();
+
+        // If the item is already in the cart, increment the quantity; otherwise, add it
+        if (cart[item]) {
+          cart[item].quantity += 1;
+        } else {
+          cart[item] = { quantity: 1 }; // Initialize the item with a quantity of 1
+        }
+
+        // Store the updated cart back into sessionStorage as a JSON string
+        sessionStorage.setItem("cart", JSON.stringify(cart));
+
+        // Update the cart display
+        displayCart();
+      }
+
+      // Function to remove item from the cart
+      function removeItemFromCart(item) {
+        // Get the current cart from sessionStorage
+        let cart = getCartFromStorage();
+
+        // Remove the item from the cart
+        delete cart[item];
+
+        // Store the updated cart back into sessionStorage as a JSON string
+        sessionStorage.setItem("cart", JSON.stringify(cart));
+
+        // Update the cart display
+        displayCart();
+      }
+
+      // Function to clear the entire cart (clear sessionStorage)
+      function clearCart() {
+        // Clear the sessionStorage
+        sessionStorage.removeItem("cart");
+
+        // Update the cart display
+        displayCart();
+      }
+
+      // Call the function to create the store and display the cart
+      createStore();
+      displayCart();
+    }
+  </script>
+
+</body>
+</html>
