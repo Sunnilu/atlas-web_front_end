@@ -37,7 +37,7 @@
 
   <div id="available-items" class="item-list">
     <h2>Available Items</h2>
-    <!-- Store items will be added here dynamically -->
+    <!-- Store items will be added, Shampoo, Soap, Sponge, Water in this array -->
   </div>
 
   <div id="cart" class="cart">
@@ -46,14 +46,14 @@
   </div>
 
   <script>
-    // Define available items
+    // Define available items should allow the user to see the application and call the function
     const availableItems = ["Shampoo", "Soap", "Sponge", "Water"];
 
-    // Check if local storage is available
+    // Check if local storage is available if not enabled on your browser, it will display this alert message
     if (typeof(Storage) === "undefined") {
       alert("Sorry, your browser does not support Web storage. Try again with a better one.");
     } else {
-      // Function to create the store display
+      // Function to create the store display and append 
       function createStore() {
         const storeDiv = document.getElementById("available-items");
 
