@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shopping Cart</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    .item-list, .cart {
+      margin-bottom: 20px;
+    }
+    button {
+      padding: 5px 10px;
+      margin: 5px;
+      cursor: pointer;
+    }
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    li {
+      padding: 10px;
+      background-color: #f4f4f4;
+      margin: 5px 0;
+      cursor: pointer;
+    }
+    li:hover {
+      background-color: #ddd;
+    }
+  </style>
+</head>
+<body>
+  <h1>Shopping Cart</h1>
+
+  <div id="available-items" class="item-list">
+    <h2>Available Items</h2>
+    <!-- Store items will be added here dynamically -->
+  </div>
+
+  <div id="cart" class="cart">
+    <h2>Your Cart</h2>
+    <!-- Cart contents will be displayed here -->
+  </div>
+
+  <script>
+    // Define available items
+    const availableItems = ["Shampoo", "Soap", "Sponge", "Water"];
+
+    // Check if session storage is available
+    if (typeof(Storage) === "undefined") {
+      alert("Sorry, your browser does not support Web storage. Try again with a better one.");
+    } else {
+      // Function to create the store display
+      function createStore() {
+        const storeDiv = document.getElementById("available-items");
+
+        // Create a <ul> to hold the items
+        const itemList = document.createElement("ul");
+
+        // Loop through availableItems and create a <li> for each item
+        availableItems.forEach(item => {
+          const listItem = document.createElement("li");
+          listItem.textContent = item;
+          listItem.addEventListener("click", () => addItemToCart(item)); // Call addItemToCart on click
+          itemList.appendChild(listItem); // Add the list item to the <ul>
+        });
+
+        // Append the <ul> to the DOM
+        storeDiv.appendChild(itemList);
+      }
+
+      // Function to display the cart
+      function displayCart() {
+        const cartDiv = document.getElementById("cart");
+        cartDiv.innerHTML = "<h2>Your Cart</h2>"; // Reset cart content
+
+        const cart = getCartFromSessionStorage();
+        
+        if (cart.length === 0) {
+          cartDiv.innerHTML += "<
