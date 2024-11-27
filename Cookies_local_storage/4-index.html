@@ -27,7 +27,7 @@
   </div>
 
   <!-- This is where the Welcome message will go -->
-  <div id="welcome-message"></div>
+  <div id="welcome-message" style="display:none;"></div>
 
   <!-- Button to show the login form -->
   <button onclick="showForm()">Show Login Website</button>
@@ -41,7 +41,9 @@
   <!-- Button to show the welcome message or form based on login status -->
   <button onclick="showWelcomeMessageOrForm()">Show Welcome or Form</button>
 
+  <!-- Include js-cookie library for handling cookies -->
   <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js"></script>
+
   <script>
     // Function to set cookies with a 10-day expiration and show welcome message
     function setCookiesAndShowWelcomeMessage() {
@@ -105,12 +107,15 @@
 
         welcomeMessage.innerHTML = `Welcome, ${firstname} 
           <span class="logout-link" onclick="deleteCookiesAndShowForm()">Logout</span>`;
-
       } else {
         // If not logged in, show the login form
         showForm();
       }
     }
+
+    // Call showWelcomeMessageOrForm on page load to check login status
+    window.onload = showWelcomeMessageOrForm;
   </script>
 </body>
 </html>
+
