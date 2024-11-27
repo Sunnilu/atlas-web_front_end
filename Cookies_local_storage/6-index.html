@@ -72,12 +72,75 @@
         storeDiv.appendChild(itemList);
       }
 
+      // Function to add item to the cart and store in sessionStorage
+      function addItemToCart(item) {
+        const cart = getCartFromSessionStorage();
+        
+        // Add the item to the cart array
+        cart.push(item);
+
+        // Save the updated cart to sessionStorage
+        sessionStorage.setItem("cart", JSON.stringify(cart));
+
+        // Display the updated cart
+        displayCart();
+      }
+
+      // Function to get the cart from sessionStorage
+      function getCartFromSessionStorage() {
+        const cart = sessionStorage.getItem("cart");
+        return cart ? JSON.parse(cart) : [];
+      }
+
+      // Function to remove item from cart
+      function removeItemFromCart(item) {
+        let cart = getCartFromSessionStorage();
+
+        // Filter out the item to be removed
+        cart = cart.filter(cartItem => cartItem !== item);
+
+        // Save the updated cart back to sessionStorage
+        sessionStorage.setItem("cart", JSON.stringify(cart));
+
+        // Display the updated cart
+        displayCart();
+      }
+
       // Function to display the cart
       function displayCart() {
         const cartDiv = document.getElementById("cart");
         cartDiv.innerHTML = "<h2>Your Cart</h2>"; // Reset cart content
 
         const cart = getCartFromSessionStorage();
-        
+
         if (cart.length === 0) {
-          cartDiv.innerHTML += "<
+          cartDiv.innerHTML += "<p>Your cart is empty.</p>";
+        } else {
+          const cartList = document.createElement("ul");
+
+          // Loop through the cart and create <li> for each item
+          cart.forEach(item => {
+            const cartItem = document.createElement("li");
+            cartItem.textContent = item;
+
+            // Add remove button
+            const removeButton = document.createElement("button");
+            removeButton.textContent = "Remove";
+            removeButton.addEventListener("click", () => removeItemFromCart(item));
+
+            cartItem.appendChild(removeButton);
+            cartList.appendChild(cartItem);
+          });
+
+          cartDiv.appendChild(cartList);
+        }
+      }
+
+      // Initialize store and cart
+      createStore();
+      displayCart();
+    }
+  </script>
+</body>
+</html>
+
